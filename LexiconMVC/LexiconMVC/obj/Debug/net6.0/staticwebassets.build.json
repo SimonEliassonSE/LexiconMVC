@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "YhrnPbDqJxLUZ1tmvyrin6/HLnZByKBewXAzH7W8R98=",
+  "Source": "LexiconMVC",
+  "BasePath": "_content/LexiconMVC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LexiconMVC\\wwwroot",
+      "Source": "LexiconMVC",
+      "ContentRoot": "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\wwwroot\\",
+      "BasePath": "_content/LexiconMVC",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
