@@ -43,15 +43,22 @@
         @RenderBody()
     </div>
     </nav>
-     <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white bprder-top border-bottom box-shadow mb-3">
-          </div>
+    <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white bprder-top border-bottom box-shadow mb-3">
+    </div>
 </body>
 
-<footer>         
-            <p class="container-fluid">
-                Current Year: @DateTime.Now.Year, Month: @DateTime.Now.Month, Day: @DateTime.Now.Day : Simon Eliasson
-            </p>       
-   </footer>
+<footer>
+    <div class="container p-1 p-sm-3">
+        <div class="row">
+            <div class="col-12">
+                <p class="container-fluid">
+                    Current Year: @DateTime.Now.Year, Month: @DateTime.Now.Month, Day: @DateTime.Now.Day : Simon Eliasson
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
 </html>
 
 
