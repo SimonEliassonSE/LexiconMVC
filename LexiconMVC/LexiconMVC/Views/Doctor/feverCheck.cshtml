@@ -16,10 +16,10 @@
                     <div class="col-lg-6">
                         <form asp-action="FeverCheck" method="post">
                             <label>Please add your current temp</label>
-                            <input type="text" name="fever" /> <input type="submit" value="Check fever" />
+                            <input type="number" name="fever" step=".1" /> <input type="submit" value="Check fever" required/>
                             <p></p>
                             @if (ViewBag.Message != null)
-                            {
+                            {                                
                                 <p>@ViewBag.Message</p>
                             }
 

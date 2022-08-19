@@ -1,11 +1,10 @@
 
 // enforce use of periods as decimal separator
-using System.Globalization;
-using System.Threading;
+//using System.Globalization;
+//var cultureInfo = new CultureInfo("en-US");
+//CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+//CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
-var cultureInfo = new CultureInfo("en-US");
-CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
-CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,4 +29,6 @@ app.MapControllerRoute(
 //app.MapGet("/", () => "Hello World!");
 
 app.Run();
+
+
 
