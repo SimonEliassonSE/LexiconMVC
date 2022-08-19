@@ -12,8 +12,15 @@
                 return "";
             else
                 return "Your temperature are normal!";
+        }
+
+
+        public static int CheckNumber(int input)
+        {
+
 
 
         }
+
     }
 }
