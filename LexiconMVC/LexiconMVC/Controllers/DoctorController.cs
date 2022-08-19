@@ -39,12 +39,27 @@ namespace LexiconMVC.Controllers
             return View();
         }
 
-        [HttpPost]
+        // This aint perfect, but it dose match the input with my variabel in session and changes it if the geuss is correct. However work in progress still. 
+        [HttpPost] 
         public IActionResult SetSession(int input)
         {
 
-            ViewBag.Message = DoctorModel.CheckNumber(input);
-            
+            if (HttpContext.Session.GetInt32("Session") == input) 
+            { 
+                ViewBag.Message = HttpContext.Session.GetInt32("Session") + "You geussed corret";
+                SetSession();
+            }
+
+            else if (HttpContext.Session.GetInt32("Session") > input) 
+            { 
+                ViewBag.Message = HttpContext.Session.GetInt32("Session") + "Your geuss was to smal! ";
+            }
+
+            else if(HttpContext.Session.GetInt32("Session") < input)
+            { 
+                ViewBag.Message = HttpContext.Session.GetInt32("Session") + "Your geuss was to big!";
+            }
+
             return View();
         }
 

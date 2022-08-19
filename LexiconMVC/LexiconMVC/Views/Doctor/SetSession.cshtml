@@ -12,13 +12,13 @@
                     <div class="col-lg-6">
                         <form asp-action="SetSession" method="post">
                             <label>Please geuss a number between 1 and 100</label>
-@*                            <input type="text" name="input" /> <input type="submit" value="Set session" />*@
+                            <input type="text" name="input" /> <input type="submit" value="Set session" />
                             <p></p>
                             @if (ViewBag.Message != null)
                             {                            
                                 <p>@ViewBag.Message</p>
                                 <p></p>
-                                <a asp-controller="Doctor" asp-action="GetSession">Check your session!</a>
+                                @*<a asp-controller="Doctor" asp-action="GetSession">Check your session!</a>*@
                             }
                         </form>
 

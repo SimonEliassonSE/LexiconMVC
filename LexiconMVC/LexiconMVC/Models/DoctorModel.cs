@@ -15,12 +15,5 @@
         }
 
 
-        public static int CheckNumber(int input)
-        {
-
-
-
-        }
-
     }
 }
