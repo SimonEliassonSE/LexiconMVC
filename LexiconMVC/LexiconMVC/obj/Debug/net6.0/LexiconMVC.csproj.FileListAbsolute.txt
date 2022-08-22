@@ -235,3 +235,4 @@ L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC\obj\Debug\net6.0\Lexi
 L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC\obj\Debug\net6.0\ref\LexiconMVC.dll
 L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC\obj\Debug\net6.0\LexiconMVC.RazorAssemblyInfo.cache
 L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC\obj\Debug\net6.0\LexiconMVC.RazorAssemblyInfo.cs
+L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC\bin\Debug\net6.0\libman.json
