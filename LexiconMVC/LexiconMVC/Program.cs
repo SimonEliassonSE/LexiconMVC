@@ -30,7 +30,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "GeussingGame",
     pattern: "GuessingGame",
-    defaults: new { controller = "Doctor", action = "SetSession" });
+    defaults: new { controller = "GeussingGame", action = "SetSession" });
 
 //app.MapGet("/", () => "Hello World!");
 
