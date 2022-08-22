@@ -19,6 +19,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXGZldmVyQ2hlY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Doctor/GetSession.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXEdldFNlc3Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Doctor/SetSession.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXFNldFNlc3Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Home/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
