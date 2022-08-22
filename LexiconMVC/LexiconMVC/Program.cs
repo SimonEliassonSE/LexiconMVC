@@ -28,9 +28,9 @@ app.MapControllerRoute(
 // /GuessingGame
 
 app.MapControllerRoute(
-    name: "GeussingGame",
+    name: "GuessingGame",
     pattern: "GuessingGame",
-    defaults: new { controller = "GeussingGame", action = "SetSession" });
+    defaults: new { controller = "GuessingGame", action = "Guessing" });
 
 //app.MapGet("/", () => "Hello World!");
 

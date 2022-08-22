@@ -19,12 +19,8 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXGZldmVyQ2hlY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/GeussingGame/GetSession.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2V1c3NpbmdHYW1lXEdldFNlc3Npb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/GeussingGame/SetSession.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2V1c3NpbmdHYW1lXFNldFNlc3Npb24uY3NodG1s
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/GuessingGame/Guessing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vlc3NpbmdHYW1lXEd1ZXNzaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Home/index.cshtml]
