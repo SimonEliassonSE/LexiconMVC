@@ -1,0 +1,66 @@
+﻿@model LexiconMVC.Models.ViewModel.CreatePersonViewModel
+
+
+                    <div class="col-lg-10 container-fluid">
+                        <div class="card" id="CardBody">
+                    <div class="col-lg-10" id="Search">
+
+                        <form method="get" asp-action="FindUsers">
+                            <p>
+                               <input type="submit" value="Search" class="btn btn-primary" /> <input type="search" placeholder="Search city or name" name="SearchObject" /> 
+                                </p>
+                                <p>
+                                 <a asp-action="Index">Get full list</a>
+
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-10" id="AddPerson">
+                        <form asp-action="AddToList" method="get">
+                            <div class="addform-label align-content-lg-end ">
+                                <label>Name</label> <input class="m-0" type="text" name="NewName" required /> 
+                            </div>
+                            <div class="newphonenumber-label align-content-lg-end ">
+                                <label>Phonenumber</label> <input class="m-0" type="tel" name="NewPhonenumber" required> 
+                            </div>
+                            <div class="newcity-label align-content-lg-end ">
+                                <label>City</label> <input class="m-0" type="text" name="NewCity" required> 
+                            </div>
+                            <p></p>
+                            <input class="align-content-lg-end" type="submit" value="New Person" />
+                        </form>
+
+                    </div>
+
+
+                    <div class="col-lg-10" id="DisplayPeopleTable">
+                        <table class="table table-striped col-lg-10">
+                            <tr>
+                                <th>Name</th>
+                                <th>Phonenumber</th>
+                                <th>City</th>
+                                <th>Delete</th>
+                            </tr>
+                            <tbody>
+
+
+                                @foreach (var item in LexiconMVC.Models.ViewModel.PeopleViewModel.displayList)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Phonenumber</td>
+                                        <td>@item.City</td>
+                                        <td>@Html.ActionLink("Delete", "DeleteFromList", new {DeleteId = item.Id})</td>
+                                    </tr>
+                                }
+
+
+                                <tr></tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    </div>
+            </div>
+

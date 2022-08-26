@@ -32,6 +32,11 @@ app.MapControllerRoute(
     pattern: "GuessingGame",
     defaults: new { controller = "GuessingGame", action = "Guessing" });
 
+app.MapControllerRoute(
+    name: "PeopleTable",
+    pattern: "PeopleTable",
+    defaults: new { controller = "People", action = "Index" });
+
 //app.MapGet("/", () => "Hello World!");
 
 app.Run();
