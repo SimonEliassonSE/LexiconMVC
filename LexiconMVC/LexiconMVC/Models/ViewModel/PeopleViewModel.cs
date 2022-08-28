@@ -20,7 +20,7 @@
                 peopleRepository = new List<PersonModel>();
                 peopleRepository.Add(new PersonModel()
                 {
-                    PersonId = setId(),
+                    PersonId = SetId(),
                     Name = "Jörgen",
                     Phonenumber = 0738779922,
                     City = "Borås"
@@ -29,7 +29,7 @@
 
                 peopleRepository.Add(new PersonModel()
                 {
-                    PersonId = setId(),
+                    PersonId = SetId(),
                     Name = "Karin",
                     Phonenumber = 0739214321,
                     City = "Göteborg"
@@ -38,7 +38,7 @@
 
                 peopleRepository.Add(new PersonModel()
                 {
-                    PersonId = setId(),
+                    PersonId = SetId(),
                     Name = "Sallim",
                     Phonenumber = 0642749357,
                     City = "Kungsbacka"
@@ -46,7 +46,7 @@
 
             }
         }
-        public int setId()
+        public int SetId()
         {
             int x = idCounter;
             idCounter++;
@@ -63,7 +63,7 @@
 
         public void Add(string NewName, int NewPhonenumber, string NewCity)
         {
-            int NewId = setId();
+            int NewId = SetId();
             peopleRepository.Add(new PersonModel() { PersonId = NewId, Name = NewName, Phonenumber = NewPhonenumber, City = NewCity });
         }
 
@@ -75,7 +75,7 @@
             }
         }
 
-        public static void RetriveSearch(string SearchObject)
+        public void RetriveSearch(string SearchObject)
         {
             for(int i = 0; i < peopleRepository.Count; i++)
             {
@@ -85,13 +85,14 @@
                 }
             }               
 
-            foreach (var user in peopleRepository)
+            for (int i = 0; i < peopleRepository.Count; i++)
             {
-                if (user.Name.Contains(SearchObject) || user.City.Contains(SearchObject))
+                if (peopleRepository[i].Name.Contains(SearchObject) || peopleRepository[i].City.Contains(SearchObject))
                 {
-                    displayList.Add(user);
+                    displayList.Add(peopleRepository[i]);
                 }
             }
+
         }
     }
 }

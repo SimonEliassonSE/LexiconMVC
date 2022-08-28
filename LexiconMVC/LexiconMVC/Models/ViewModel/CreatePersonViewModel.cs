@@ -16,6 +16,13 @@
         {
 
         }
+        public CreatePersonViewModel(int id, string name, int phonenumber, string city)
+        {
+            PersonId = id;
+            Name = name;
+            Phonenumber = phonenumber;
+            City = city;
+        }
 
     }
 }

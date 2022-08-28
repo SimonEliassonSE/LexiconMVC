@@ -1,0 +1,15 @@
+﻿@model LexiconMVC.Models.ViewModel.PeopleViewModel
+@using LexiconMVC
+@using LexiconMVC.Models
+@using LexiconMVC.Models.ViewModel
+
+
+<div class="col-lg-10" id="DisplayPeopleTable">
+        @foreach (var item in PeopleViewModel.displayList)
+        {
+            <div class="row col-lg-12">
+                <p>| @item.Name | @item.Phonenumber | @item.City | @Html.ActionLink("Delete", "DeleteFromList", new {DeleteId = item.PersonId}) |</p>
+            </div>
+        }
+</div>
+
