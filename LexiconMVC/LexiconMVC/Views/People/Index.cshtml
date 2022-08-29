@@ -1,6 +1,5 @@
-﻿@model LexiconMVC.Models.ViewModel.CreatePersonViewModel
-@using LexiconMVC.Models
-@using LexiconMVC.Models.ViewModel
+﻿@model List<CreatePersonViewModel>
+
 @{
     ViewData["Title"] = "User Data";
 }
@@ -9,14 +8,10 @@
 <div class="col-lg-10 container-fluid">
     <div class="card" id="CardBody">
         <div class="col-lg-10" id="Search">
-            <form method="get" asp-action="Index">
+            <form method="get" asp-action="FindUser">
                 <p>
                     <input type="submit" value="Search" class="btn btn-primary" /> <input type="search" placeholder="Search city or name" name="SearchObject" />
                 </p>
-@*                <p>
-                    <a asp-action="Index">Get full list</a>
-
-                </p>*@
             </form>
         </div>
 
@@ -38,57 +33,11 @@
         </div>
         <div class="col-lg-12" id="DisplayPeopleTable">
 
-@*            <script>
-
-                $(document).ready(function(){
-
-                })
-
-                $.ajax({
-                type: "GET",
-                url: "@Url.Action("Index")",
-                dataType: "json",
-                success: function(result) {
-                    console.log(result);
-                },
-                error: function(req, status, error) {
-                    console.log(status)
-                }
-
-            });
-
-                $.ajax({
-                type: "POST",
-                url: "@Url.Action("DeleteFromList")",
-                dataType: "json",
-                data: {DeleteId: "1"},
-                success: function(result) {
-                    console.log(result);
-                },
-                error: function(req, status, error) {
-                    console.log(status)
-                }
-
-            });
-
-            $.ajax({
-                type: "POST",
-                url: "@Url.Action("AddToList")",
-                dataType: "json",
-                data: {NewName:"Cat" NewPhonenumber:"7309482313" NewCity:"Borås"}
-                success: function(result) {
-                    console.log(result);
-                },
-                error: function(req, status, error) {
-                    console.log(status)
-                }
-
-            });
-
-
-            </script>*@
-            <partial name="_people" model="@Model.PeopleViewModel" />
+            <partial name="_people" model="@Model" />
         </div>
+        <button onclick="">Get all users</button>
+        <button onclick="">Details</button>
+        <button onclick="">Delete</button>
     </div>
 </div>
 
