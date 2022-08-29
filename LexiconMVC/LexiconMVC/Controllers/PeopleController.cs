@@ -6,6 +6,7 @@ namespace LexiconMVC.Controllers
     public class PeopleController : Controller
     {
 
+        //[HttpGet]
         public ViewResult Index(string SearchObject)
         {
             PeopleViewModel model = new PeopleViewModel();
@@ -58,6 +59,7 @@ namespace LexiconMVC.Controllers
         //    return RedirectToAction("index");
         //}
 
+        //[HttpPost]
         public ActionResult DeleteFromList(int DeleteId)
         {
             PeopleViewModel model = new PeopleViewModel();
@@ -66,6 +68,7 @@ namespace LexiconMVC.Controllers
 
         }
 
+        //[HttpPost]
         public ActionResult AddToList(string NewName, int NewPhonenumber, string NewCity) 
         {
             PeopleViewModel model = new PeopleViewModel();
