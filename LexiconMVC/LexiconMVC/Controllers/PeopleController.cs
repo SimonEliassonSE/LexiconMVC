@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LexiconMVC.Models.ViewModel;
+using LexiconMVC.Data;
 using System.Collections.Generic;
 
 namespace LexiconMVC.Controllers
 {
     public class PeopleController : Controller
     {
+        private ApplicationDbContext context { get; set; }
 
         // GET: /<controller>/
         public IActionResult Index()
@@ -13,6 +15,8 @@ namespace LexiconMVC.Controllers
             PeopleViewModel model = new PeopleViewModel();
 
             model.SetData();
+            
+
 
             PeopleViewModel.displayList.Clear();
             PeopleViewModel.GetListOfPeople();

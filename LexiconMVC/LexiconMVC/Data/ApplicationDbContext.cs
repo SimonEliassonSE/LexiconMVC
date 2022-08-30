@@ -5,6 +5,7 @@ namespace LexiconMVC.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<PersonModel> Persons { get; set; }
 
         public ApplicationDbContext()
         {

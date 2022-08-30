@@ -91,7 +91,6 @@
                 if (peopleRepository[i].Name.Contains(SearchObject) || peopleRepository[i].City.Contains(SearchObject))
                 {
                     displayList.Add(peopleRepository[i]);
-
                 }
             }
 
