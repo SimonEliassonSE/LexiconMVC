@@ -1,8 +1,15 @@
+using LexiconMVC.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddMvc(); // Vi vill ha med våran service MVC
-// Måste inte finnas för att använda session(standard lifslängd är 30 min, men ger oss mer kontroll över session
+builder.Services.AddMvc();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(900);
@@ -10,22 +17,19 @@ builder.Services.AddSession(options =>
 
 var app = builder.Build();
 
-app.UseSession(); // Måste finnas för att använda session
+app.UseSession(); 
 app.UseStaticFiles();
 app.UseRouting();
 
 app.MapControllerRoute(
     name:"default",
     pattern: "{controller=ViewContent}/{action=Index}/{id?}");
-// Pattern är hur det ska se ut 
+
 
 app.MapControllerRoute(
-    name: "FeverCheck", // Namnet på routen
-    pattern: "FeverCheck", // Ger oss möjligheten att komma åt actionen gemom att på startsidan skriva /FeverCheck
-    defaults: new { controller = "Doctor", action = "FeverCheck" }); // Säger villken controller som ska användas och villken action present i controllen som ska köras
-
-// Behöver yterligare 1 app.MapControllerRoute som genom att skriva /GeussingGame tar oss till den actione
-// /GuessingGame
+    name: "FeverCheck", 
+    pattern: "FeverCheck", 
+    defaults: new { controller = "Doctor", action = "FeverCheck" }); 
 
 app.MapControllerRoute(
     name: "GuessingGame",
@@ -36,8 +40,6 @@ app.MapControllerRoute(
     name: "PeopleTable",
     pattern: "PeopleTable",
     defaults: new { controller = "People", action = "Index" });
-
-//app.MapGet("/", () => "Hello World!");
 
 app.Run();
 
