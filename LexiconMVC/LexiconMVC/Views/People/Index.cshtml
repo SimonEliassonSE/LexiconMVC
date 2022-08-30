@@ -32,42 +32,15 @@
 
         </div>
         <div class="col-lg-12" id="DisplayPeopleTable">
-
             <partial name="_people" model="@Model" />
+        </div class="ButtonContainer"> 
+        <div>
+        <button class="col-lg-2" onclick="GetUserList()">Get all users</button>
+        <div id="userListHere"></div>
+        <button class="col-lg-2" onclick="">Details</button>
+        <button class="col-lg-2" onclick="">Delete</button>
         </div>
-        <button onclick="">Get all users</button>
-        <button onclick="">Details</button>
-        <button onclick="">Delete</button>
     </div>
 </div>
 
-@*
-        <div class="col-lg-10" id="DisplayPeopleTable">
-            <table class="table table-striped col-lg-10">
-                <tr>
-                    <th>Name</th>
-                    <th>Phonenumber</th>
-                    <th>City</th>
-                    <th>Delete</th>
-                </tr>
-                <tbody>
-
-
-
-                    @foreach (var item in PeopleViewModel.displayList)
-                    {
-                        <tr>
-                            <td>@item.Name</td>
-                            <td>@item.Phonenumber</td>
-                            <td>@item.City</td>
-                            <td>@Html.ActionLink("Delete", "DeleteFromList", new {DeleteId = item.PersonId})</td>
-                        </tr>
-                    }
-
-
-                    <tr></tr>
-                </tbody>
-            </table>
-
-        </div>*@
 

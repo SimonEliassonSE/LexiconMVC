@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LexiconMVC.Models.ViewModel;
+using System.Collections.Generic;
 
 namespace LexiconMVC.Controllers
 {
@@ -7,24 +8,29 @@ namespace LexiconMVC.Controllers
     {
 
         // GET: /<controller>/
-        public ViewResult Index()
+        public IActionResult Index()
         {
             PeopleViewModel model = new PeopleViewModel();
 
-                model.SetData();
-                
-                PeopleViewModel.displayList.Clear();
-                PeopleViewModel.GetListOfPeople();
-           
+            model.SetData();
 
-            List<CreatePersonViewModel> allUsers = new();
+            PeopleViewModel.displayList.Clear();
+            PeopleViewModel.GetListOfPeople();
+
+
+            List<CreatePersonViewModel> allUsers = new List<CreatePersonViewModel>();
             {
                 for (int i = 0; i < PeopleViewModel.displayList.Count; i++)
                 {
-                    new CreatePersonViewModel(PeopleViewModel.displayList[i].PersonId,
-                                               PeopleViewModel.displayList[i].Name,
-                                               PeopleViewModel.displayList[i].Phonenumber,
-                                               PeopleViewModel.displayList[i].City);
+                    
+                    allUsers.Add(new CreatePersonViewModel()
+                    {
+                        PersonId = PeopleViewModel.displayList[i].PersonId,
+                        Name = PeopleViewModel.displayList[i].Name,
+                        Phonenumber = PeopleViewModel.displayList[i].Phonenumber,
+                        City = PeopleViewModel.displayList[i].City,  
+                    });
+                    
                 }
 
             }
@@ -36,26 +42,30 @@ namespace LexiconMVC.Controllers
         public IActionResult FindUser(string SearchObject)
         {
             if(SearchObject != null)
-            {            
-            PeopleViewModel model = new PeopleViewModel();
+            {
+                PeopleViewModel model = new PeopleViewModel();
             model.RetriveSearch(SearchObject);
             }
 
             List<CreatePersonViewModel> allUsers = new();
-            allUsers.Clear();
+            allUsers.Clear();            
             {
                 for (int i = 0; i < PeopleViewModel.displayList.Count; i++)
                 {
-                    new CreatePersonViewModel(PeopleViewModel.displayList[i].PersonId,
-                                               PeopleViewModel.displayList[i].Name,
-                                               PeopleViewModel.displayList[i].Phonenumber,
-                                               PeopleViewModel.displayList[i].City);
+
+                    allUsers.Add(new CreatePersonViewModel()
+                    {
+                        PersonId = PeopleViewModel.displayList[i].PersonId,
+                        Name = PeopleViewModel.displayList[i].Name,
+                        Phonenumber = PeopleViewModel.displayList[i].Phonenumber,
+                        City = PeopleViewModel.displayList[i].City,
+                    });
+
                 }
 
             }
 
-
-            return View("Index" , allUsers);
+            return View("Index", allUsers);
 
         }
 
@@ -77,6 +87,36 @@ namespace LexiconMVC.Controllers
             model.Add(NewName, NewPhonenumber, NewCity);
             }
             return RedirectToAction("Index");
+        }
+
+        public ActionResult GetListOfPeople()
+        {
+            PeopleViewModel model = new PeopleViewModel();
+
+            model.SetData();
+
+            PeopleViewModel.displayList.Clear();
+            PeopleViewModel.GetListOfPeople();
+
+
+            List<CreatePersonViewModel> allUsers = new();
+            {
+                for (int i = 0; i < PeopleViewModel.displayList.Count; i++)
+                {
+
+                    allUsers.Add(new CreatePersonViewModel()
+                    {
+                        PersonId = PeopleViewModel.displayList[i].PersonId,
+                        Name = PeopleViewModel.displayList[i].Name,
+                        Phonenumber = PeopleViewModel.displayList[i].Phonenumber,
+                        City = PeopleViewModel.displayList[i].City,
+                    });
+
+                }                
+
+            }
+            return View("Index", allUsers);
+
         }
 
     }

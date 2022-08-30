@@ -6,7 +6,7 @@
 
         public static List<PersonModel> displayList = new List<PersonModel>();
 
-        public static int idCounter = 0;
+        private static int idCounter = 0;
 
         public PeopleViewModel()
         {
@@ -46,13 +46,11 @@
 
             }
         }
-        public int SetId()
+        private int SetId()
         {
             int x = idCounter;
             idCounter++;
             return x;
-            
-           
         }
 
         public void Delete(int DeleteId)
@@ -71,25 +69,29 @@
         {
             for (int i = 0; i < peopleRepository.Count; i++)
             {
+
                 displayList.Add(peopleRepository[i]);
             }
         }
 
         public void RetriveSearch(string SearchObject)
         {
-            for(int i = 0; i < peopleRepository.Count; i++)
+       
+            for (int i = 0; i < peopleRepository.Count; i++)
             {
-                if(peopleRepository[i].Name.Contains(SearchObject) || peopleRepository[i].City.Contains(SearchObject))
+                if (peopleRepository[i].Name.Contains(SearchObject) || peopleRepository[i].City.Contains(SearchObject))
                 {
+
                     displayList.Clear();
                 }
-            }               
+            }
 
             for (int i = 0; i < peopleRepository.Count; i++)
             {
                 if (peopleRepository[i].Name.Contains(SearchObject) || peopleRepository[i].City.Contains(SearchObject))
                 {
                     displayList.Add(peopleRepository[i]);
+
                 }
             }
 
