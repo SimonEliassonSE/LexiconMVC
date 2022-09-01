@@ -43,6 +43,36 @@ namespace LexiconMVC.Migrations
                     b.HasKey("PersonId");
 
                     b.ToTable("Persons");
+
+                    b.HasData(
+                        new
+                        {
+                            PersonId = 1,
+                            City = "Kinna",
+                            Name = "Simon Eliasson",
+                            Phonenumber = 738450197
+                        },
+                        new
+                        {
+                            PersonId = 2,
+                            City = "Göteborg",
+                            Name = "Janne Karlsson",
+                            Phonenumber = 709952132
+                        },
+                        new
+                        {
+                            PersonId = 3,
+                            City = "Borås",
+                            Name = "Annie Svensson",
+                            Phonenumber = 782161234
+                        },
+                        new
+                        {
+                            PersonId = 4,
+                            City = "Malmö",
+                            Name = "Kalle Carlsson",
+                            Phonenumber = 741237894
+                        });
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LexiconMVC.Models.ViewModel;
+using LexiconMVC.Models;
 using LexiconMVC.Data;
 using System.Collections.Generic;
 
@@ -7,121 +8,109 @@ namespace LexiconMVC.Controllers
 {
     public class PeopleController : Controller
     {
-        private ApplicationDbContext context { get; set; }
+        readonly ApplicationDbContext _context;
 
-        // GET: /<controller>/
+        public PeopleController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+
+
+      
         public IActionResult Index()
         {
-            PeopleViewModel model = new PeopleViewModel();
-
-            model.SetData();
-            
-
-
-            PeopleViewModel.displayList.Clear();
-            PeopleViewModel.GetListOfPeople();
-
-
-            List<CreatePersonViewModel> allUsers = new List<CreatePersonViewModel>();
+            List<PersonModel> listOfPeople = _context.Persons.ToList();
+            List<CreatePersonViewModel> allUsers = new();
+            for (int i = 0; i < listOfPeople.Count; i++)
             {
-                for (int i = 0; i < PeopleViewModel.displayList.Count; i++)
+
+                allUsers.Add(new CreatePersonViewModel()
                 {
-                    
-                    allUsers.Add(new CreatePersonViewModel()
-                    {
-                        PersonId = PeopleViewModel.displayList[i].PersonId,
-                        Name = PeopleViewModel.displayList[i].Name,
-                        Phonenumber = PeopleViewModel.displayList[i].Phonenumber,
-                        City = PeopleViewModel.displayList[i].City,  
-                    });
-                    
-                }
+                    PersonId = listOfPeople[i].PersonId,
+                    Name = listOfPeople[i].Name,
+                    Phonenumber = listOfPeople[i].Phonenumber,
+                    City = listOfPeople[i].City,
+                });
 
             }
 
             return View(allUsers);
+
+            //return View(_context.Persons.ToList());
+
         }
  
 
         public IActionResult FindUser(string SearchObject)
         {
-            if(SearchObject != null)
-            {
-                PeopleViewModel model = new PeopleViewModel();
-            model.RetriveSearch(SearchObject);
-            }
 
-            List<CreatePersonViewModel> allUsers = new();
-            allUsers.Clear();            
+            var querySearch = from person in _context.Persons
+                              where person.Name == SearchObject || person.City == SearchObject
+                              select person;
+
+            List<CreatePersonViewModel> specificUser = new();
+
+            foreach (var user in querySearch)
             {
-                for (int i = 0; i < PeopleViewModel.displayList.Count; i++)
+                specificUser.Add(new CreatePersonViewModel()
                 {
-
-                    allUsers.Add(new CreatePersonViewModel()
-                    {
-                        PersonId = PeopleViewModel.displayList[i].PersonId,
-                        Name = PeopleViewModel.displayList[i].Name,
-                        Phonenumber = PeopleViewModel.displayList[i].Phonenumber,
-                        City = PeopleViewModel.displayList[i].City,
-                    });
-
-                }
-
+                    PersonId = user.PersonId,
+                    Name = user.Name,
+                    Phonenumber = user.Phonenumber,
+                    City = user.City
+                });
             }
 
-            return View("Index", allUsers);
+                return View("Index", specificUser);
 
         }
 
 
         public ActionResult DeleteFromList(int DeleteId)
         {
-            PeopleViewModel model = new PeopleViewModel();
-            model.Delete(DeleteId);
-            return RedirectToAction("index");
 
-        }
+            var person = _context.Persons.FirstOrDefault(x => x.PersonId == DeleteId);
 
+            _context.Persons.Remove(person);
+            _context.SaveChanges();
 
-        public ActionResult AddToList(string NewName, int NewPhonenumber, string NewCity) 
-        {
-            PeopleViewModel model = new PeopleViewModel();
-            if(NewPhonenumber != 0) 
-            { 
-            model.Add(NewName, NewPhonenumber, NewCity);
-            }
             return RedirectToAction("Index");
+
+            //PeopleViewModel model = new PeopleViewModel();
+            //model.Delete(DeleteId);
+            //return RedirectToAction("index");
+
         }
 
-        public ActionResult GetListOfPeople()
+        
+        public ActionResult AddToList(/*int NewPersonId,*/ string NewName, int NewPhonenumber, string NewCity) 
         {
-            PeopleViewModel model = new PeopleViewModel();
 
-            model.SetData();
+            
+            PersonModel model = new PersonModel();  
+            
+                  
+            model.Name = NewName;
+            model.Phonenumber = NewPhonenumber;
+            model.City = NewCity;
 
-            PeopleViewModel.displayList.Clear();
-            PeopleViewModel.GetListOfPeople();
-
-
-            List<CreatePersonViewModel> allUsers = new();
-            {
-                for (int i = 0; i < PeopleViewModel.displayList.Count; i++)
-                {
-
-                    allUsers.Add(new CreatePersonViewModel()
-                    {
-                        PersonId = PeopleViewModel.displayList[i].PersonId,
-                        Name = PeopleViewModel.displayList[i].Name,
-                        Phonenumber = PeopleViewModel.displayList[i].Phonenumber,
-                        City = PeopleViewModel.displayList[i].City,
-                    });
-
-                }                
-
+            if (ModelState.IsValid)
+            {              
+                _context.Persons.Add(model);
+                _context.SaveChanges();
             }
-            return View("Index", allUsers);
 
+        return RedirectToAction("Index");
+
+            //PeopleViewModel model = new PeopleViewModel();
+            //if(NewPhonenumber != 0) 
+            //{ 
+            //model.Add(NewName, NewPhonenumber, NewCity);
+            //}
+            //return RedirectToAction("Index");
         }
+       
 
     }
 }
