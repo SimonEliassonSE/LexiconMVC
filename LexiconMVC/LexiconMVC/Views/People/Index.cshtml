@@ -22,28 +22,29 @@
                     <label>PersonId</label> <input class="m-0" type="number" name="NewPersonId" required />
                 </div>*@
                 <div class="addform-label align-content-lg-end ">
+                    <label>SSN</label> <input class="m-0" type="text" name="NewSSN" required />
+                </div>
+                <div class="addform-label align-content-lg-end ">
                     <label>Name</label> <input class="m-0" type="text" name="NewName" required />
                 </div>
                 <div class="newphonenumber-label align-content-lg-end ">
                     <label>Phonenumber</label> <input class="m-0" type="tel" name="NewPhonenumber" required>
                 </div>
-                <div class="newcity-label align-content-lg-end ">
-                    <label>City</label> <input class="m-0" type="text" name="NewCity" required>
-                </div>
                 <p></p>
                 <input class="align-content-lg-end" type="submit" value="New Person" />
-            </form>
-
+                
+            </form>               
+            <a asp-action="AddCityToPerson"> Add City to person</a>
         </div>
         <div class="col-lg-12" id="DisplayPeopleTable">
             <partial name="_people" model="@Model" />
         </div class="ButtonContainer"> 
-        <div>
+        <div>          
           
-        <button class="col-lg-2" onclick="GetUserList()">Get all users</button>
+@*        <button class="col-lg-2" onclick="GetUserList()">Get all users</button>
         <div id="userListHere"></div>
         <button class="col-lg-2" onclick="">Details</button>
-        <button class="col-lg-2" onclick="">Delete</button>
+        <button class="col-lg-2" onclick="">Delete</button>*@
         </div>
     </div>
 </div>

@@ -4,25 +4,49 @@
     {
  
         public PersonModel? PersonModel { get; set; }
-        public PeopleViewModel? PeopleViewModel { get; set; }      
+        public PeopleViewModel? PeopleViewModel { get; set; }
+        public Country Country { get; set; }
+        public City City { get; set; }
 
-        public int PersonId { get; set; }
+
+        public string? SSN { get; set; }
         public string? Name { get; set; }
         public int Phonenumber { get; set; }
-        public string? City { get; set; }
+
+        public string CityPostalCode { get; set; }
+        public string CityName { get; set; }
+
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public string Continent { get; set; }
+     
 
 
         public CreatePersonViewModel()
         {
 
         }
-        public CreatePersonViewModel(int id,string name, int phonenumber, string city)
+        public CreatePersonViewModel(string id,string name, int phonenumber, string countryName)
         {
-            PersonId = id;
+            SSN = id;
             Name = name;
             Phonenumber = phonenumber;
-            City = city;
-           
+            CountryName = countryName;
+
+        }
+
+        public CreatePersonViewModel(string countryCode, string countryName, string continent)
+        {
+            CountryCode = countryCode;
+            CountryName = countryName;
+            Continent = continent;
+        }
+
+        public CreatePersonViewModel(string cityName , string cityPostalCode)
+        {
+            CityName = cityName;
+            CityPostalCode = cityPostalCode;
+  
         }
     }
 }

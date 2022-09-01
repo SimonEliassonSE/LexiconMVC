@@ -4,33 +4,19 @@ namespace LexiconMVC.Models
 {
     public class PersonModel
     {
-
+        // Remove database and change PersonId to SSN and Phonenumber to string, Remove both Required aswell.
         [Key]
-        public int PersonId { get; set; }
+        public string SSN { get; set; }
 
-        [Required]
+     
         public string? Name { get; set; }
 
         public int Phonenumber { get; set; }
 
-        [Required]
-        public string? City { get; set; }
+        //public City City { get; set; }
+           
 
+        public City City { get; set; } 
 
-
-        //    public PersonModel()
-        //    {
-
-        //    }
-
-        //    public PersonModel(int id, string name, int phonenumber, string city)
-        //    {
-        //        PersonId = id;
-        //        Name = name;
-        //        Phonenumber = phonenumber;
-        //        City = city;
-        //    }
-
-        //}
     }
 }

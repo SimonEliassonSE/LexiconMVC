@@ -41,6 +41,11 @@ app.MapControllerRoute(
     pattern: "PeopleTable",
     defaults: new { controller = "People", action = "Index" });
 
+app.MapControllerRoute(
+    name: "Admin",
+    pattern: "Admin",
+    defaults: new { controller = "Country", action = "AddCityToCountry" });
+
 app.Run();
 
 

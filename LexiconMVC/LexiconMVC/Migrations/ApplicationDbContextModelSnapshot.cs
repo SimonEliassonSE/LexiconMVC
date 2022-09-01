@@ -21,58 +21,204 @@ namespace LexiconMVC.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("LexiconMVC.Models.PersonModel", b =>
+            modelBuilder.Entity("LexiconMVC.Models.City", b =>
                 {
-                    b.Property<int>("PersonId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("CityPostalCode")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonId"), 1L, 1);
-
-                    b.Property<string>("City")
+                    b.Property<string>("CityName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CityPostalCode");
+
+                    b.HasIndex("CountryCode");
+
+                    b.ToTable("cities");
+
+                    b.HasData(
+                        new
+                        {
+                            CityPostalCode = "41672",
+                            CityName = "Gothenburg"
+                        },
+                        new
+                        {
+                            CityPostalCode = "50632",
+                            CityName = "Borås"
+                        },
+                        new
+                        {
+                            CityPostalCode = "0010",
+                            CityName = "Oslo"
+                        },
+                        new
+                        {
+                            CityPostalCode = "78613",
+                            CityName = "Austin"
+                        },
+                        new
+                        {
+                            CityPostalCode = "22000",
+                            CityName = "Tijuana"
+                        },
+                        new
+                        {
+                            CityPostalCode = "100",
+                            CityName = "Tokyo"
+                        },
+                        new
+                        {
+                            CityPostalCode = "3000",
+                            CityName = "Melbourne"
+                        },
+                        new
+                        {
+                            CityPostalCode = "60601",
+                            CityName = "Chicago"
+                        },
+                        new
+                        {
+                            CityPostalCode = "602",
+                            CityName = "Kyoto"
+                        },
+                        new
+                        {
+                            CityPostalCode = "5005",
+                            CityName = "Bergen"
+                        });
+                });
+
+            modelBuilder.Entity("LexiconMVC.Models.Country", b =>
+                {
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Continent")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CountryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CountryCode");
+
+                    b.ToTable("countries");
+
+                    b.HasData(
+                        new
+                        {
+                            CountryCode = "+46",
+                            Continent = "Europe",
+                            CountryName = "Sweden"
+                        },
+                        new
+                        {
+                            CountryCode = "+47",
+                            Continent = "Europe",
+                            CountryName = "Norway"
+                        },
+                        new
+                        {
+                            CountryCode = "+1",
+                            Continent = "North America",
+                            CountryName = "USA"
+                        },
+                        new
+                        {
+                            CountryCode = "+52",
+                            Continent = "South America",
+                            CountryName = "Mexico"
+                        },
+                        new
+                        {
+                            CountryCode = "+82",
+                            Continent = "Asia",
+                            CountryName = "Japan"
+                        },
+                        new
+                        {
+                            CountryCode = "+61",
+                            Continent = "Australia",
+                            CountryName = "Australia"
+                        });
+                });
+
+            modelBuilder.Entity("LexiconMVC.Models.PersonModel", b =>
+                {
+                    b.Property<string>("SSN")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CityPostalCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Phonenumber")
                         .HasColumnType("int");
 
-                    b.HasKey("PersonId");
+                    b.HasKey("SSN");
+
+                    b.HasIndex("CityPostalCode");
 
                     b.ToTable("Persons");
 
                     b.HasData(
                         new
                         {
-                            PersonId = 1,
-                            City = "Kinna",
+                            SSN = "196103058877",
                             Name = "Simon Eliasson",
                             Phonenumber = 738450197
                         },
                         new
                         {
-                            PersonId = 2,
-                            City = "Göteborg",
+                            SSN = "198309067744",
                             Name = "Janne Karlsson",
                             Phonenumber = 709952132
                         },
                         new
                         {
-                            PersonId = 3,
-                            City = "Borås",
+                            SSN = "199901023366",
                             Name = "Annie Svensson",
                             Phonenumber = 782161234
                         },
                         new
                         {
-                            PersonId = 4,
-                            City = "Malmö",
+                            SSN = "200509012541",
                             Name = "Kalle Carlsson",
                             Phonenumber = 741237894
                         });
+                });
+
+            modelBuilder.Entity("LexiconMVC.Models.City", b =>
+                {
+                    b.HasOne("LexiconMVC.Models.Country", null)
+                        .WithMany("Cities")
+                        .HasForeignKey("CountryCode");
+                });
+
+            modelBuilder.Entity("LexiconMVC.Models.PersonModel", b =>
+                {
+                    b.HasOne("LexiconMVC.Models.City", "City")
+                        .WithMany("People")
+                        .HasForeignKey("CityPostalCode");
+
+                    b.Navigation("City");
+                });
+
+            modelBuilder.Entity("LexiconMVC.Models.City", b =>
+                {
+                    b.Navigation("People");
+                });
+
+            modelBuilder.Entity("LexiconMVC.Models.Country", b =>
+                {
+                    b.Navigation("Cities");
                 });
 #pragma warning restore 612, 618
         }
