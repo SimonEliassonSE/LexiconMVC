@@ -26,12 +26,18 @@
         {
 
         }
-        public CreatePersonViewModel(string id,string name, int phonenumber, string countryName)
+        public CreatePersonViewModel(string id, string name, int phonenumber)
         {
             SSN = id;
             Name = name;
             Phonenumber = phonenumber;
-            CountryName = countryName;
+        }
+        public CreatePersonViewModel(string id,string name, int phonenumber, string cityName)
+        {
+            SSN = id;
+            Name = name;
+            Phonenumber = phonenumber;
+            CityName = cityName;
 
         }
 

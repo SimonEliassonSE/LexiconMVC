@@ -19,69 +19,160 @@ namespace LexiconMVC.Controllers
 
 
 
-      
+       
         public IActionResult Index()
         {
-            //var query =       from person in _context.Persons
-            //                  where person.Name == SearchObject || person.City.CityPostalCode == SearchObject
-            //                  select person;
 
-            //var query = from person in _context.Persons
-            //            join city in _context.cities on person equals city.CityPostalCode
-            //            where person.City.CityPostalCode == city.CityPostalCode
-            //            select new { Faculty = fac, SemesterText = sem.SemesterText };
+            var peopleWithCitys = from city in _context.cities
+                                  from people in _context.Persons
+                                  where city.CityPostalCode == people.City.CityPostalCode
+                                  select new 
+                                  { 
+                                      personSSN = people.SSN,
+                                      personName = people.Name,
+                                      personPhonenumber = people.Phonenumber,
+                                      personCity = city.CityName
+                                      
+                                    };
 
-            List<PersonModel> listOfPeople = _context.Persons.ToList();
-            List<City> listOfCities = _context.cities.ToList();
-            //var Cities = _context.cities.FirstOrDefault(x => x.CityPostalCode == listOfPeople);
-            List<CreatePersonViewModel> allUsers = new();
+            var peopleWithoutCitys =
+                                  from people in _context.Persons
+                                  where people.City.CityPostalCode == null
+                                  select new
+                                  {
+                                      personSSN = people.SSN,
+                                      personName = people.Name,
+                                      personPhonenumber = people.Phonenumber,                                     
 
-            for (int i = 0; i < listOfPeople.Count; i++)
+                                  };
+
+
+            List<CreatePersonViewModel> allUsers = new List<CreatePersonViewModel>();
+
+            foreach (var person in peopleWithCitys)
             {
-                
-                //var city = _context.cities.FirstOrDefault(x => x.CityPostalCode == _context;
-
                 allUsers.Add(new CreatePersonViewModel()
                 {
-                    SSN = listOfPeople[i].SSN,
-                    Name = listOfPeople[i].Name,
-                    Phonenumber = listOfPeople[i].Phonenumber,
-                    //City = listOfCities[i].CityName 
-                    City = listOfPeople[i].City
-                });
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhonenumber,
+                    CityName = person.personCity
 
+                });
+            }
+
+
+            foreach (var person in peopleWithoutCitys)
+            {
+                allUsers.Add(new CreatePersonViewModel()
+                {
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhonenumber,
+                    CityName = "No City Added Yet!"
+
+                });
             }
 
             return View(allUsers);
 
-            //return View(_context.Persons.ToList());
-
         }
- 
 
-        public IActionResult FindUser(string SearchObject)
+       
+        public ActionResult FindUser(string SearchObject)
         {
+            // Finds people with city's added to them. 
+            var searchQueryNameHaveCity = from person in _context.Persons
+                              from city in _context.cities
+                              where person.Name == SearchObject
+                              where city.CityPostalCode == person.City.CityPostalCode
 
-            var querySearch = from person in _context.Persons
-                              where person.Name == SearchObject || person.City.CityPostalCode == SearchObject
-                              select person;
+                              select new
+                              {
+                                  personName = person.Name,
+                                  personSSN = person.SSN,
+                                  personPhone = person.Phonenumber,
+                                  personCity = city.CityName
+                              };
+            // Gets people without a city added to them, sends out a default message that the person have no city asigned yet
+            var searchQueryNameHasNoCity = from person in _context.Persons                                        
+                                          where person.Name == SearchObject
+                                          where person.City.CityPostalCode == null
 
-            List<CreatePersonViewModel> specificUser = new();
+                                           select new
+                                          {
+                                              personName = person.Name,
+                                              personSSN = person.SSN,
+                                              personPhone = person.Phonenumber,
+                                              personCity = "No City Added Yet!"
+                                           };
+            // Gets search done on City, if there is a person with cityPostalCode that match city.CityPostalCode we add it to the select
+            var searchQueryCity = from person in _context.Persons
+                                  from city in _context.cities
+                                  where city.CityName == SearchObject
+                                  where person.City.CityPostalCode == city.CityPostalCode
 
-            foreach (var user in querySearch)
+                                  select new
+                                  {
+                                      personName = person.Name,
+                                      personSSN = person.SSN,
+                                      personPhone = person.Phonenumber,
+                                      personCity = city.CityName
+                                  };
+
+            List < CreatePersonViewModel > newSearchDone = new List<CreatePersonViewModel>();
+
+            foreach (var person in searchQueryNameHaveCity)
             {
-                specificUser.Add(new CreatePersonViewModel()
+                
+                newSearchDone.Add(new CreatePersonViewModel()
                 {
-                    SSN = user.SSN,
-                    Name = user.Name,
-                    Phonenumber = user.Phonenumber,
-                    City = user.City,
+
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhone,
+                    CityName = person.personCity
                 });
             }
 
-            return View("Index", specificUser);
+            foreach (var person in searchQueryNameHasNoCity)
+            {
 
-          
+                newSearchDone.Add(new CreatePersonViewModel()
+                {
+
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhone,
+                    CityName = person.personCity
+                });
+
+            }
+
+           
+            foreach (var person in searchQueryCity)
+            {
+
+                newSearchDone.Add(new CreatePersonViewModel()
+                {
+
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhone,
+                    CityName = person.personCity
+                });
+
+            }
+
+            // If Searchbutton is "clicked" without input, we go back to index and display the default list
+            if(SearchObject == null)
+            {
+                return RedirectToAction("Index");
+            
+            }
+
+            return View("Index", newSearchDone);
+
         }
 
 
@@ -102,17 +193,14 @@ namespace LexiconMVC.Controllers
         }
 
         
-        public ActionResult AddToList(string NewSSN, string NewName, int NewPhonenumber, string NewCity) 
+        public ActionResult AddToList(string NewSSN, string NewName, int NewPhonenumber) 
         {
-            ViewBag.Persons = new SelectList(_context.Persons, "SSN", "Name");
-            ViewBag.cities = new SelectList(_context.cities, "CityPostalCode", "CityName");
 
-            PersonModel model = new PersonModel();  
-            
+            PersonModel model = new PersonModel();
+
             model.SSN = NewSSN;
             model.Name = NewName;
             model.Phonenumber = NewPhonenumber;
-            //model.City = NewCity;
 
             if (ModelState.IsValid)
             {              
@@ -121,13 +209,6 @@ namespace LexiconMVC.Controllers
             }
 
         return RedirectToAction("Index");
-
-            //PeopleViewModel model = new PeopleViewModel();
-            //if(NewPhonenumber != 0) 
-            //{ 
-            //model.Add(NewName, NewPhonenumber, NewCity);
-            //}
-            //return RedirectToAction("Index");
         }
         
         public IActionResult AddCityToPerson()

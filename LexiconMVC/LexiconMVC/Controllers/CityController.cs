@@ -1,5 +1,4 @@
 ﻿using LexiconMVC.Data;
-using LexiconMVC.Models;
 using LexiconMVC.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -40,8 +39,61 @@ namespace LexiconMVC.Controllers
 
             ViewBag.Persons = new SelectList(_context.Persons, "SSN", "Name");
             ViewBag.cities = new SelectList(_context.cities, "CityPostalCode", "CityName");
-            
-            return View();
+
+
+            var peopleWithCitys = from city in _context.cities
+                                  from people in _context.Persons
+                                  where city.CityPostalCode == people.City.CityPostalCode
+                                  select new
+                                  {
+                                      personSSN = people.SSN,
+                                      personName = people.Name,
+                                      personPhonenumber = people.Phonenumber,
+                                      personCity = city.CityName
+
+                                  };
+
+            var peopleWithoutCitys =
+                                  from people in _context.Persons
+                                  where people.City.CityPostalCode == null
+                                  select new
+                                  {
+                                      personSSN = people.SSN,
+                                      personName = people.Name,
+                                      personPhonenumber = people.Phonenumber,
+
+                                  };
+
+
+            List<CreatePersonViewModel> allUsers = new List<CreatePersonViewModel>();
+
+            foreach (var person in peopleWithCitys)
+            {
+                allUsers.Add(new CreatePersonViewModel()
+                {
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhonenumber,
+                    CityName = person.personCity
+
+                });
+            }
+
+
+            foreach (var person in peopleWithoutCitys)
+            {
+                allUsers.Add(new CreatePersonViewModel()
+                {
+                    SSN = person.personSSN,
+                    Name = person.personName,
+                    Phonenumber = person.personPhonenumber,
+                    CityName = "No City Added Yet!"
+
+                });
+            }
+
+            return View(allUsers);
+
         }
 
         [HttpPost]

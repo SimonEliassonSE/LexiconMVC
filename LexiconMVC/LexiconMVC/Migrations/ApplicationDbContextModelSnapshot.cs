@@ -37,7 +37,7 @@ namespace LexiconMVC.Migrations
 
                     b.HasIndex("CountryCode");
 
-                    b.ToTable("cities");
+                    b.ToTable("cities", (string)null);
 
                     b.HasData(
                         new
@@ -107,7 +107,7 @@ namespace LexiconMVC.Migrations
 
                     b.HasKey("CountryCode");
 
-                    b.ToTable("countries");
+                    b.ToTable("countries", (string)null);
 
                     b.HasData(
                         new
@@ -166,7 +166,7 @@ namespace LexiconMVC.Migrations
 
                     b.HasIndex("CityPostalCode");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Persons", (string)null);
 
                     b.HasData(
                         new
