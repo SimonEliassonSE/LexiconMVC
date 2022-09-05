@@ -20,7 +20,6 @@ namespace LexiconMVC.Data
         public DbSet<PersonModel> Persons { get; set; }
         public DbSet<Country> countries { get; set; }
         public DbSet<City> cities { get; set; }
-
         public DbSet<Language> Languages { get; set; }
          
 
@@ -63,10 +62,10 @@ namespace LexiconMVC.Data
             modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "English", LanguageShortName = "USA" });
 
             // Ta bort denna vid inlämning, då personen har lagts till via Views inte seedade. Dvs inte default tilläggd så existerar inte om man skapar databasen
-            modelbuilder.Entity<PersonModel>()
-                .HasMany(l => l.LanguagesList)
-                .WithMany(p => p.PeopleList)
-                .UsingEntity(j => j.HasData(new { PeopleListSSN = "199302034389", LanguagesListLanguageName = "Japanese" }));
+            //modelbuilder.Entity<PersonModel>()
+            //    .HasMany(l => l.LanguagesList)
+            //    .WithMany(p => p.PeopleList)
+            //    .UsingEntity(j => j.HasData(new { PeopleListSSN = "199302034389", LanguagesListLanguageName = "Japanese" }));
 
             modelbuilder.Entity<PersonModel>()
                 .HasMany(l => l.LanguagesList)
