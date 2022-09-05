@@ -43,16 +43,16 @@ namespace LexiconMVC.Data
             modelbuilder.Entity<Country>().HasData(new Country { CountryCode = "+82", CountryName = "Japan", Continent = "Asia" });
             modelbuilder.Entity<Country>().HasData(new Country { CountryCode = "+61", CountryName = "Australia", Continent = "Australia" });
 
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "41672", CityName = "Gothenburg" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "50632", CityName = "Borås" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "0010", CityName = "Oslo" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "78613", CityName = "Austin" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "22000", CityName = "Tijuana" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "100", CityName = "Tokyo" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "3000", CityName = "Melbourne" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "60601", CityName = "Chicago" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "602", CityName = "Kyoto" });
-            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "5005", CityName = "Bergen" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "41672", CityName = "Gothenburg", CountryID = "+46" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "50632", CityName = "Borås", CountryID = "+46" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "0010", CityName = "Oslo", CountryID = "+47" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "78613", CityName = "Austin", CountryID = "+1" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "22000", CityName = "Tijuana", CountryID = "+52" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "100", CityName = "Tokyo", CountryID = "+82" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "3000", CityName = "Melbourne", CountryID = "+61" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "60601", CityName = "Chicago", CountryID = "+1" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "602", CityName = "Kyoto", CountryID = "+82" });
+            modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "5005", CityName = "Bergen", CountryID = "+47" });
 
             modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Swedish", LanguageShortName = "SWE" });
             modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Japanese", LanguageShortName = "JAP" });
@@ -60,12 +60,6 @@ namespace LexiconMVC.Data
             modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Australian", LanguageShortName = "AUS" });
             modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Mexican", LanguageShortName = "MEX" });
             modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "English", LanguageShortName = "USA" });
-
-            // Ta bort denna vid inlämning, då personen har lagts till via Views inte seedade. Dvs inte default tilläggd så existerar inte om man skapar databasen
-            //modelbuilder.Entity<PersonModel>()
-            //    .HasMany(l => l.LanguagesList)
-            //    .WithMany(p => p.PeopleList)
-            //    .UsingEntity(j => j.HasData(new { PeopleListSSN = "199302034389", LanguagesListLanguageName = "Japanese" }));
 
             modelbuilder.Entity<PersonModel>()
                 .HasMany(l => l.LanguagesList)

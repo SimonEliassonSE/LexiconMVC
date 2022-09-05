@@ -38,11 +38,6 @@ namespace LexiconMVC.Migrations
                     b.HasData(
                         new
                         {
-                            LanguagesListLanguageName = "Japanese",
-                            PeopleListSSN = "199302034389"
-                        },
-                        new
-                        {
                             LanguagesListLanguageName = "Mexican",
                             PeopleListSSN = "2001-11-31-8952"
                         },
@@ -67,12 +62,13 @@ namespace LexiconMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CountryCode")
+                    b.Property<string>("CountryID")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CityPostalCode");
 
-                    b.HasIndex("CountryCode");
+                    b.HasIndex("CountryID");
 
                     b.ToTable("cities");
 
@@ -80,52 +76,62 @@ namespace LexiconMVC.Migrations
                         new
                         {
                             CityPostalCode = "41672",
-                            CityName = "Gothenburg"
+                            CityName = "Gothenburg",
+                            CountryID = "+46"
                         },
                         new
                         {
                             CityPostalCode = "50632",
-                            CityName = "Borås"
+                            CityName = "Borås",
+                            CountryID = "+46"
                         },
                         new
                         {
                             CityPostalCode = "0010",
-                            CityName = "Oslo"
+                            CityName = "Oslo",
+                            CountryID = "+47"
                         },
                         new
                         {
                             CityPostalCode = "78613",
-                            CityName = "Austin"
+                            CityName = "Austin",
+                            CountryID = "+1"
                         },
                         new
                         {
                             CityPostalCode = "22000",
-                            CityName = "Tijuana"
+                            CityName = "Tijuana",
+                            CountryID = "+52"
                         },
                         new
                         {
                             CityPostalCode = "100",
-                            CityName = "Tokyo"
+                            CityName = "Tokyo",
+                            CountryID = "+82"
                         },
                         new
                         {
                             CityPostalCode = "3000",
-                            CityName = "Melbourne"
+                            CityName = "Melbourne",
+                            CountryID = "+61"
                         },
                         new
                         {
                             CityPostalCode = "60601",
-                            CityName = "Chicago"
+                            CityName = "Chicago",
+                            CountryID = "+1"
                         },
                         new
                         {
                             CityPostalCode = "602",
-                            CityName = "Kyoto"
+                            CityName = "Kyoto",
+                            CountryID = "+82"
                         },
                         new
                         {
                             CityPostalCode = "5005",
-                            CityName = "Bergen"
+                            CityName = "Bergen",
+                            CountryID = "+47"
                         });
                 });
 
@@ -319,9 +325,13 @@ namespace LexiconMVC.Migrations
 
             modelBuilder.Entity("LexiconMVC.Models.City", b =>
                 {
-                    b.HasOne("LexiconMVC.Models.Country", null)
+                    b.HasOne("LexiconMVC.Models.Country", "Country")
                         .WithMany("Cities")
-                        .HasForeignKey("CountryCode");
+                        .HasForeignKey("CountryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("LexiconMVC.Models.PersonModel", b =>
