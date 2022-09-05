@@ -10,7 +10,9 @@ namespace LexiconMVC.Models
      
         public string? Name { get; set; }
 
-        public int Phonenumber { get; set; }           
+        public int Phonenumber { get; set; }      
+        
+        public string? CityID { get; set; }  
 
         public City? City { get; set; }       
 

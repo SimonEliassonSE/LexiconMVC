@@ -43,7 +43,7 @@ namespace LexiconMVC.Controllers
 
             var peopleWithCitys = from city in _context.cities
                                   from people in _context.Persons
-                                  where city.CityPostalCode == people.City.CityPostalCode
+                                  where city.CityPostalCode == people.CityID
                                   select new
                                   {
                                       personSSN = people.SSN,
@@ -55,12 +55,13 @@ namespace LexiconMVC.Controllers
 
             var peopleWithoutCitys =
                                   from people in _context.Persons
-                                  where people.City.CityPostalCode == null
+                                  where people.CityID == null
                                   select new
                                   {
                                       personSSN = people.SSN,
                                       personName = people.Name,
                                       personPhonenumber = people.Phonenumber,
+                                      personCity = "No City Added Yet!"
 
                                   };
 
@@ -87,7 +88,7 @@ namespace LexiconMVC.Controllers
                     SSN = person.personSSN,
                     Name = person.personName,
                     Phonenumber = person.personPhonenumber,
-                    CityName = "No City Added Yet!"
+                    CityName = person.personCity
 
                 });
             }

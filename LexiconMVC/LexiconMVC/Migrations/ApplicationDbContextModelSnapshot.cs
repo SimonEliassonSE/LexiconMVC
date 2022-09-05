@@ -242,7 +242,7 @@ namespace LexiconMVC.Migrations
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CityPostalCode")
+                    b.Property<string>("CityID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
@@ -253,7 +253,7 @@ namespace LexiconMVC.Migrations
 
                     b.HasKey("SSN");
 
-                    b.HasIndex("CityPostalCode");
+                    b.HasIndex("CityID");
 
                     b.ToTable("Persons");
 
@@ -261,48 +261,56 @@ namespace LexiconMVC.Migrations
                         new
                         {
                             SSN = "196103058877",
+                            CityID = "41672",
                             Name = "Simon Eliasson",
                             Phonenumber = 738450197
                         },
                         new
                         {
                             SSN = "198309067744",
+                            CityID = "50632",
                             Name = "Janne Karlsson",
                             Phonenumber = 709952132
                         },
                         new
                         {
                             SSN = "199901023366",
+                            CityID = "50632",
                             Name = "Annie Svensson",
                             Phonenumber = 782161234
                         },
                         new
                         {
                             SSN = "200509012541",
+                            CityID = "100",
                             Name = "Kalle Carlsson",
                             Phonenumber = 741237894
                         },
                         new
                         {
                             SSN = "2001-11-31-8952",
+                            CityID = "3000",
                             Name = "Andy Hjert",
                             Phonenumber = 738660102
                         },
                         new
                         {
                             SSN = "1978-01-01-3578",
+                            CityID = "100",
                             Name = "Björn Bergman",
                             Phonenumber = 759982251
                         },
                         new
                         {
                             SSN = "1995-03-07-9898",
+                            CityID = "60601",
                             Name = "Sara Strand",
                             Phonenumber = 761496378
                         },
                         new
                         {
                             SSN = "1969-08-01-7487",
+                            CityID = "602",
                             Name = "Frida Svensson",
                             Phonenumber = 778852211
                         });
@@ -338,7 +346,7 @@ namespace LexiconMVC.Migrations
                 {
                     b.HasOne("LexiconMVC.Models.City", "City")
                         .WithMany("People")
-                        .HasForeignKey("CityPostalCode");
+                        .HasForeignKey("CityID");
 
                     b.Navigation("City");
                 });

@@ -25,7 +25,7 @@ namespace LexiconMVC.Controllers
 
             var peopleWithCitys = from city in _context.cities
                                   from people in _context.Persons
-                                  where city.CityPostalCode == people.City.CityPostalCode
+                                  where city.CityPostalCode == people.CityID
                                   select new 
                                   { 
                                       personSSN = people.SSN,
@@ -36,13 +36,14 @@ namespace LexiconMVC.Controllers
                                     };
 
             var peopleWithoutCitys =
-                                  from people in _context.Persons
-                                  where people.City.CityPostalCode == null
+                                  from people in _context.Persons                                  
+                                  where people.CityID == null
                                   select new
                                   {
                                       personSSN = people.SSN,
                                       personName = people.Name,
-                                      personPhonenumber = people.Phonenumber,                                     
+                                      personPhonenumber = people.Phonenumber,
+                                      personCity = "No City Added Yet!"
 
                                   };
 
@@ -69,7 +70,7 @@ namespace LexiconMVC.Controllers
                     SSN = person.personSSN,
                     Name = person.personName,
                     Phonenumber = person.personPhonenumber,
-                    CityName = "No City Added Yet!"
+                    CityName = person.personCity
 
                 });
             }
@@ -85,7 +86,7 @@ namespace LexiconMVC.Controllers
             var searchQueryNameHaveCity = from person in _context.Persons
                               from city in _context.cities
                               where person.Name == SearchObject
-                              where city.CityPostalCode == person.City.CityPostalCode
+                              where person.CityID == city.CityPostalCode
 
                               select new
                               {
@@ -97,7 +98,7 @@ namespace LexiconMVC.Controllers
             // Gets people without a city added to them, sends out a default message that the person have no city asigned yet
             var searchQueryNameHasNoCity = from person in _context.Persons                                        
                                           where person.Name == SearchObject
-                                          where person.City.CityPostalCode == null
+                                          where person.CityID == null
 
                                            select new
                                           {
@@ -110,7 +111,7 @@ namespace LexiconMVC.Controllers
             var searchQueryCity = from person in _context.Persons
                                   from city in _context.cities
                                   where city.CityName == SearchObject
-                                  where person.City.CityPostalCode == city.CityPostalCode
+                                  where person.CityID == city.CityPostalCode
 
                                   select new
                                   {

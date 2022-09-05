@@ -27,14 +27,14 @@ namespace LexiconMVC.Data
         {
             base.OnModelCreating(modelbuilder);
 
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0738450197, Name = "Simon Eliasson", SSN = "196103058877" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0709952132, Name = "Janne Karlsson", SSN = "198309067744" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0782161234, Name = "Annie Svensson", SSN = "199901023366" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0741237894, Name = "Kalle Carlsson", SSN = "200509012541" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0738660102, Name = "Andy Hjert", SSN = "2001-11-31-8952" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0759982251, Name = "Björn Bergman", SSN = "1978-01-01-3578" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0761496378, Name = "Sara Strand", SSN = "1995-03-07-9898" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0778852211, Name = "Frida Svensson", SSN = "1969-08-01-7487" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0738450197, Name = "Simon Eliasson", SSN = "196103058877", CityID = "41672" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0709952132, Name = "Janne Karlsson", SSN = "198309067744", CityID = "50632" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0782161234, Name = "Annie Svensson", SSN = "199901023366", CityID = "50632" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0741237894, Name = "Kalle Carlsson", SSN = "200509012541", CityID = "100" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0738660102, Name = "Andy Hjert", SSN = "2001-11-31-8952", CityID = "3000" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0759982251, Name = "Björn Bergman", SSN = "1978-01-01-3578", CityID = "100" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0761496378, Name = "Sara Strand", SSN = "1995-03-07-9898", CityID = "60601" });
+            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0778852211, Name = "Frida Svensson", SSN = "1969-08-01-7487", CityID = "602" });
 
             modelbuilder.Entity<Country>().HasData(new Country { CountryCode = "+46", CountryName = "Sweden", Continent = "Europe" });
             modelbuilder.Entity<Country>().HasData(new Country { CountryCode = "+47", CountryName = "Norway", Continent = "Europe" });
