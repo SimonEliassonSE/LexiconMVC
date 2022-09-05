@@ -81,10 +81,15 @@ namespace LexiconMVC.Controllers
             var personX = _context.Persons.FirstOrDefault(x => x.SSN == ssn);
             var languageX = _context.Languages.FirstOrDefault(x => x.LanguageName == languagename);
 
+            
+
             if (ModelState.IsValid )
             {
+                
+
                 languageX.PeopleList.Add(personX);
                 _context.SaveChanges();
+        
             }
 
             return RedirectToAction("AddLanguageToPerson");
