@@ -7,6 +7,7 @@
         public PeopleViewModel? PeopleViewModel { get; set; }
         public Country Country { get; set; }
         public City City { get; set; }
+        public Language Language { get; set; }
 
 
         public string? SSN { get; set; }
@@ -19,6 +20,7 @@
         public string CountryCode { get; set; }
         public string CountryName { get; set; }
         public string Continent { get; set; }
+        public string LanguageName { get; set; }
      
 
 
@@ -54,5 +56,11 @@
             CityPostalCode = cityPostalCode;
   
         }
+
+        //public CreatePersonViewModel(string personName, string languageName)
+        //{
+        //    Name = personName;
+        //    LanguageName = languageName;
+        //}
     }
 }

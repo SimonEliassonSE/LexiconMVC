@@ -13,10 +13,13 @@ namespace LexiconMVC.Models
 
         public int Phonenumber { get; set; }
 
-        //public City City { get; set; }
+       
            
 
-        public City? City { get; set; } 
+        public City? City { get; set; }
+       
+
+        public List<Language> LanguagesList { get; set; } = new List<Language>();
 
     }
 }

@@ -216,7 +216,13 @@ namespace LexiconMVC.Controllers
 
             return RedirectToAction("AddPersonToCity", "City");
         }
-       
+
+        public IActionResult AddLanguageToPerson()
+        {
+
+            return RedirectToAction("AddLanguageToPerson", "Language");
+        }
+
 
     }
 }
