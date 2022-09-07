@@ -9,11 +9,8 @@
 
         public int Phonenumber { get; set; }
 
-        public string? CityID { get; set; }
 
         public City City { get; set; }
-        public string CityPostalCode { get; set; }
         public string CityName { get; set; }
-        public string? CountryID { get; set; }
     }
 }
