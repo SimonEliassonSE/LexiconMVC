@@ -1,8 +1,8 @@
-﻿@model List<CreatePersonViewModel>
+﻿@model List<PeopleViewModel>
 
 
 <div class="col-lg-10" id="DisplayPeopleTable">
-        @foreach (CreatePersonViewModel item in Model)
+        @foreach (PeopleViewModel item in Model)
         {
             <div class="row col-lg-12">
                 <p>| @item.SSN | @item.Name | @item.Phonenumber | @item.CityName | @Html.ActionLink("Delete", "DeleteFromList", new {DeleteId = item.SSN}) |</p>

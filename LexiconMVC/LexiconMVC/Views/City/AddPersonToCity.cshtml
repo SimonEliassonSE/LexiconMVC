@@ -1,4 +1,4 @@
-﻿@model List<CreatePersonViewModel>
+﻿@model List<CityViewModel>
 @{
     ViewData["Title"] = "AddPersonToCity";
 }
@@ -7,6 +7,8 @@
 <div class="container">
     <div class="container-fluid">
         <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
+        <p></p>
+        <a asp-action="CityIndex">Return to City Table</a>
         <div class="form-group"></div>
         <form asp-action="AddPersonToCity" method="post">
             <div class="container-fluid col-lg-10">
@@ -15,7 +17,7 @@
             </div>
             <div class="container-fluid col-lg-10">
                 <label>City: </label>
-                <select name="citypostalcode" class="form-control" asp-items="ViewBag.cities"></select>
+                <select name="citypostalcode" class="form-control" asp-items="ViewBag.Cities"></select>
 
                 <input type="submit" value="Add person to City" class="btn btn-primary" />
             </div>

@@ -1,4 +1,4 @@
-﻿@model List<CreatePersonViewModel>
+﻿@model List<PeopleViewModel>
 
 @{
     ViewData["Title"] = "User Data";
@@ -27,16 +27,21 @@
                 <div class="addform-label align-content-lg-end ">
                     <label>Name</label> <input class="m-0" type="text" name="NewName" required />
                 </div>
-                <div class="newphonenumber-label align-content-lg-end ">
+                <div class="addform-label align-content-lg-end ">
                     <label>Phonenumber</label> <input class="m-0" type="tel" name="NewPhonenumber" required>
+                </div>
+                <div class="addform-label align-content-lg-end ">
+                    <label>City</label> <input class="m-0" type="text" name="CityName" required>
                 </div>
                 <p></p>
                 <input class="align-content-lg-end" type="submit" value="New Person" />
                 
             </form>               
-            <a asp-action="AddCityToPerson"> Add City to person</a>
+            <a asp-action="CityIndex">City Table</a>
             <p></p>
-            <a asp-action="AddLanguageToPerson"> Add Language to person</a>
+            <a asp-action="CountryIndex">Country Table</a>
+            <p></p>
+            <a asp-action="LanguageIndex">Language Table</a>
         </div>
         <div class="col-lg-12" id="DisplayPeopleTable">
             <partial name="_people" model="@Model" />

@@ -18,10 +18,10 @@ namespace LexiconMVC.Data
         }
 
         public DbSet<PersonModel> Persons { get; set; }
-        public DbSet<Country> countries { get; set; }
-        public DbSet<City> cities { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
         public DbSet<Language> Languages { get; set; }
-         
+
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
@@ -79,9 +79,7 @@ namespace LexiconMVC.Data
 
 
 
-        }
-
-        //public DbSet<PersonModel> personModels { get; set; }
+        }        
 
     }
 }

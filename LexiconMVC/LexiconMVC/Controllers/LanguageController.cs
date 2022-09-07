@@ -15,52 +15,27 @@ namespace LexiconMVC.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+
+        public IActionResult LanguageIndex()
         {
-            //var peopleWithLanguage = from people in _context.Persons
-            //                         from languages in _context.Languages
-            //                         where people.SSN == languages.PersonModel.SSN
-            //                         select new
-            //                         {
-            //                             personSSN = people.SSN,
-            //                             personName = people.Name,
-            //                             languages = languages.LanguageName,
-            //                         };
 
-            //var peopleWithOutLanguage = from people in _context.Persons
-            //                         from languages in _context.Languages
-            //                         where people.SSN != languages.PersonModel.SSN
-            //                         select new
-            //                         {
-            //                             personSSN = people.SSN,
-            //                             personName = people.Name,
-            //                             languages = "No language added yet!"
-            //                         };
+            var languagedata = from language in _context.Languages select language;
+
+            List<LanguageViewModel> allUsers = new List<LanguageViewModel>();
+
+            foreach (var language in languagedata)
+            {
+                allUsers.Add(new LanguageViewModel()
+                {
+                    LanguageName = language.LanguageName,
+                    LanguageShortName = language.LanguageShortName,
+
+                });
+            }
 
 
-            //List<CreatePersonViewModel> allUsers = new List<CreatePersonViewModel>();
+            return View(allUsers);
 
-            //foreach (var person in peopleWithLanguage)
-            //{
-            //    allUsers.Add(new CreatePersonViewModel()
-            //    {
-            //        SSN = person.SSN,
-            //        Name = person.Name,
-            //        LanguageName = person.LanguageName, 
-            //    });
-            //}
-
-            //foreach (var person in peopleWithOutLanguage)
-            //{
-            //    allUsers.Add(new CreatePersonViewModel()
-            //    {
-            //        SSN = person.SSN,
-            //        Name = person.Name,
-            //        LanguageName = person.LanguageName,
-            //    });
-            //}
-
-            return View(/*allUsers*/);
         }
 
         public IActionResult AddLanguageToPerson ()
@@ -68,9 +43,7 @@ namespace LexiconMVC.Controllers
             ViewBag.Persons = new SelectList(_context.Persons, "SSN", "Name");
             ViewBag.Languages = new SelectList(_context.Languages, "LanguageName", "LanguageName");
 
-            //var peopleLanguageQuery = from people in _context.Persons
-            //                          from language in _context.Languages
-            //                          where 
+
 
             return View();
         }
@@ -78,16 +51,13 @@ namespace LexiconMVC.Controllers
         [HttpPost]
         public IActionResult AddLanguageToPerson (string ssn, string languagename)
         {
-            var personX = _context.Persons.FirstOrDefault(x => x.SSN == ssn);
-            var languageX = _context.Languages.FirstOrDefault(x => x.LanguageName == languagename);
+            var person = _context.Persons.FirstOrDefault(x => x.SSN == ssn);
+            var language = _context.Languages.FirstOrDefault(x => x.LanguageName == languagename);
+                   
+            if (ModelState.IsValid)
+            {                
 
-            
-
-            if (ModelState.IsValid )
-            {
-                
-
-                languageX.PeopleList.Add(personX);
+                language.PeopleList.Add(person);
                 _context.SaveChanges();
         
             }
@@ -95,7 +65,6 @@ namespace LexiconMVC.Controllers
             return RedirectToAction("AddLanguageToPerson");
 
         }
-
         public IActionResult ReturnToPeopleIndex()
         {
 

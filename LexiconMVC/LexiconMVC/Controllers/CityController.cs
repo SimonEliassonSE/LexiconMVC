@@ -16,21 +16,24 @@ namespace LexiconMVC.Controllers
 
         public IActionResult CityIndex()
         {
-            //List<City> listOfCity = _context.cities.ToList();
-            //List<CreatePersonViewModel> allUsers = new();
-            //for (int i = 0; i < listOfCity.Count; i++)
-            //{
 
-            //    allUsers.Add(new CreatePersonViewModel()
-            //    {
-            //        CityName = listOfCity[i].CityName,
-            //        CityPostalCode = listOfCity[i].CityPostalCode,                    
-                    
-            //    });
+            var citydata = from city in _context.Cities select city;        
 
-            //}
+            List<CityViewModel> allUsers = new List<CityViewModel>();
 
-            return View();
+            foreach (var city in citydata)
+            {
+                allUsers.Add(new CityViewModel()
+                {
+                    CityPostalCode = city.CityPostalCode,
+                    CityName = city.CityName,
+                    CountryID = city.CountryID
+
+                });
+            }
+
+
+            return View(allUsers);
         }
 
         public IActionResult AddPersonToCity()
@@ -38,10 +41,10 @@ namespace LexiconMVC.Controllers
                       
 
             ViewBag.Persons = new SelectList(_context.Persons, "SSN", "Name");
-            ViewBag.cities = new SelectList(_context.cities, "CityPostalCode", "CityName");
+            ViewBag.Cities = new SelectList(_context.Cities, "CityPostalCode", "CityName");
 
 
-            var peopleWithCitys = from city in _context.cities
+            var peopleWithCitys = from city in _context.Cities
                                   from people in _context.Persons
                                   where city.CityPostalCode == people.CityID
                                   select new
@@ -66,11 +69,11 @@ namespace LexiconMVC.Controllers
                                   };
 
 
-            List<CreatePersonViewModel> allUsers = new List<CreatePersonViewModel>();
+            List<CityViewModel> allUsers = new List<CityViewModel>();
 
             foreach (var person in peopleWithCitys)
             {
-                allUsers.Add(new CreatePersonViewModel()
+                allUsers.Add(new CityViewModel()
                 {
                     SSN = person.personSSN,
                     Name = person.personName,
@@ -83,7 +86,7 @@ namespace LexiconMVC.Controllers
 
             foreach (var person in peopleWithoutCitys)
             {
-                allUsers.Add(new CreatePersonViewModel()
+                allUsers.Add(new CityViewModel()
                 {
                     SSN = person.personSSN,
                     Name = person.personName,
@@ -101,7 +104,7 @@ namespace LexiconMVC.Controllers
         public IActionResult AddPersonToCity(string ssn, string citypostalcode)
         {
             var person = _context.Persons.FirstOrDefault(x => x.SSN == ssn);
-            var city = _context.cities.FirstOrDefault(x => x.CityPostalCode == citypostalcode);
+            var city = _context.Cities.FirstOrDefault(x => x.CityPostalCode == citypostalcode);
 
             if (ModelState.IsValid)
             {

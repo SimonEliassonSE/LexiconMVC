@@ -16,18 +16,36 @@ namespace LexiconMVC.Controllers
 
         public IActionResult CountryIndex()
         {
-            return View();
+
+            var countrydata = from country in _context.Countries select country;
+
+            List<CountryViewModel> allUsers = new List<CountryViewModel>();
+
+            foreach (var country in countrydata)
+            {
+                allUsers.Add(new CountryViewModel()
+                {
+                
+                    CountryCode = country.CountryCode,
+                    CountryName = country.CountryName,
+                    Continent = country.Continent,           
+
+                });
+            }
+
+
+            return View(allUsers);
         }
 
         public IActionResult AddCityToCountry()
         {
 
 
-            ViewBag.cities = new SelectList(_context.cities, "CityPostalCode", "CityName");
-            ViewBag.countries = new SelectList(_context.countries, "CountryCode", "CountryName");
+            ViewBag.Cities = new SelectList(_context.Cities, "CityPostalCode", "CityName");
+            ViewBag.Countries = new SelectList(_context.Countries, "CountryCode", "CountryName");
 
-            var countryQuery = from countries in _context.countries
-                               from cities in _context.cities
+            var countryQuery = from countries in _context.Countries
+                               from cities in _context.Cities
                                where cities.CountryID == countries.CountryCode
                                select new
                                {
@@ -37,11 +55,11 @@ namespace LexiconMVC.Controllers
                                    CityName = cities.CityName       
                                };
 
-           List < CreatePersonViewModel > allUsers = new List<CreatePersonViewModel>();
+           List <CountryViewModel> allUsers = new List<CountryViewModel>();
 
             foreach (var country in countryQuery)
             {
-                allUsers.Add(new CreatePersonViewModel()
+                allUsers.Add(new CountryViewModel()
                 {
 
                     CountryCode = country.CountryCode,
@@ -61,8 +79,8 @@ namespace LexiconMVC.Controllers
         public IActionResult AddCityToCountry(string citypostalcode, string countrycode)
         {
 
-            var city = _context.cities.FirstOrDefault(x => x.CityPostalCode == citypostalcode);
-            var country = _context.countries.FirstOrDefault(x => x.CountryCode == countrycode);
+            var city = _context.Cities.FirstOrDefault(x => x.CityPostalCode == citypostalcode);
+            var country = _context.Countries.FirstOrDefault(x => x.CountryCode == countrycode);
 
             if (ModelState.IsValid)
             {
@@ -74,6 +92,12 @@ namespace LexiconMVC.Controllers
 
 
             return RedirectToAction("AddCityToCountry");
+        }
+
+        public IActionResult ReturnToPeopleIndex()
+        {
+
+            return RedirectToAction("Index", "People");
         }
     }
 }
