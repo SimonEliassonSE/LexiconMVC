@@ -1,5 +1,6 @@
 ﻿using LexiconMVC.Data;
-using LexiconMVC.Models.ViewModel;
+using LexiconMVC.Models;
+using LexiconMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -53,11 +54,11 @@ namespace LexiconMVC.Controllers
         {
             var person = _context.Persons.FirstOrDefault(x => x.SSN == ssn);
             var language = _context.Languages.FirstOrDefault(x => x.LanguageName == languagename);
-                   
+            
             if (ModelState.IsValid)
-            {                
+            {
 
-                language.PeopleList.Add(person);
+                person.LanguagesList.Add(language);
                 _context.SaveChanges();
         
             }

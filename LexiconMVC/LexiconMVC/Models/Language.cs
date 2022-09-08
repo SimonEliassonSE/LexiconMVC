@@ -8,6 +8,6 @@ namespace LexiconMVC.Models
         public string LanguageName { get; set; }
         public string LanguageShortName { get; set; }
 
-        public List<PersonModel> PeopleList { get; set; } = new List<PersonModel>();
+        public List<Person> PeopleList { get; set; } = new List<Person>();
     }
 }

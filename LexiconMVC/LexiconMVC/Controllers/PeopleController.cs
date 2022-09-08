@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using LexiconMVC.Models.ViewModel;
+using LexiconMVC.ViewModels;
 using LexiconMVC.Models;
 using LexiconMVC.Data;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace LexiconMVC.Controllers
 {
@@ -36,11 +34,11 @@ namespace LexiconMVC.Controllers
                                     };
 
 
-            List<PeopleViewModel> allUsers = new List<PeopleViewModel>();
+            List<PersonViewModel> allUsers = new List<PersonViewModel>();
 
             foreach (var person in peopleWithCitys)
             {
-                allUsers.Add(new PeopleViewModel()
+                allUsers.Add(new PersonViewModel()
                 {
                     SSN = person.personSSN,
                     Name = person.personName,
@@ -85,12 +83,12 @@ namespace LexiconMVC.Controllers
                                       personCity = city.CityName
                                   };
 
-            List <PeopleViewModel> newSearchDone = new List<PeopleViewModel>();
+            List <PersonViewModel> newSearchDone = new List<PersonViewModel>();
 
             foreach (var person in searchQueryNameHaveCity)
             {
                 
-                newSearchDone.Add(new PeopleViewModel()
+                newSearchDone.Add(new PersonViewModel()
                 {
 
                     SSN = person.personSSN,
@@ -103,7 +101,7 @@ namespace LexiconMVC.Controllers
             foreach (var person in searchQueryCity)
             {
 
-                newSearchDone.Add(new PeopleViewModel()
+                newSearchDone.Add(new PersonViewModel()
                 {
 
                     SSN = person.personSSN,
@@ -153,7 +151,7 @@ namespace LexiconMVC.Controllers
                                     cityName = city.CityName
                                 };
             
-            PersonModel model = new PersonModel();
+            Person model = new Person();
 
             foreach (var city in checkCityName)
             {
@@ -169,9 +167,6 @@ namespace LexiconMVC.Controllers
                     
                 }
             }
-
-
-
 
             if (ModelState.IsValid)
             {              

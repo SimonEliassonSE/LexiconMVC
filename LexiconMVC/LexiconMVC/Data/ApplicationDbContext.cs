@@ -17,7 +17,7 @@ namespace LexiconMVC.Data
 
         }
 
-        public DbSet<PersonModel> Persons { get; set; }
+        public DbSet<Person> Persons { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Language> Languages { get; set; }
@@ -52,27 +52,27 @@ namespace LexiconMVC.Data
             modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "602", CityName = "Kyoto", CountryID = "+82" });
             modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "5005", CityName = "Bergen", CountryID = "+47" });
 
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0738450197, Name = "Simon Eliasson", SSN = "196103058877", CityID = "41672" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0709952132, Name = "Janne Karlsson", SSN = "198309067744", CityID = "50632" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0782161234, Name = "Annie Svensson", SSN = "199901023366", CityID = "50632" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0741237894, Name = "Kalle Carlsson", SSN = "200509012541", CityID = "100" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0738660102, Name = "Andy Hjert", SSN = "2001-11-31-8952", CityID = "3000" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0759982251, Name = "Björn Bergman", SSN = "1978-01-01-3578", CityID = "100" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0761496378, Name = "Sara Strand", SSN = "1995-03-07-9898", CityID = "60601" });
-            modelbuilder.Entity<PersonModel>().HasData(new PersonModel { Phonenumber = 0778852211, Name = "Frida Svensson", SSN = "1969-08-01-7487", CityID = "602" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0738450197, Name = "Simon Eliasson", SSN = "196103058877", CityID = "41672" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0709952132, Name = "Janne Karlsson", SSN = "198309067744", CityID = "50632" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0782161234, Name = "Annie Svensson", SSN = "199901023366", CityID = "50632" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0741237894, Name = "Kalle Carlsson", SSN = "200509012541", CityID = "100" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0738660102, Name = "Andy Hjert", SSN = "2001-11-31-8952", CityID = "3000" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0759982251, Name = "Björn Bergman", SSN = "1978-01-01-3578", CityID = "100" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0761496378, Name = "Sara Strand", SSN = "1995-03-07-9898", CityID = "60601" });
+            modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0778852211, Name = "Frida Svensson", SSN = "1969-08-01-7487", CityID = "602" });
 
 
-            modelbuilder.Entity<PersonModel>()
+            modelbuilder.Entity<Person>()
                 .HasMany(l => l.LanguagesList)
                 .WithMany(p => p.PeopleList)
                 .UsingEntity(j => j.HasData(new { PeopleListSSN = "2001-11-31-8952", LanguagesListLanguageName = "Mexican" }));
 
-            modelbuilder.Entity<PersonModel>()
+            modelbuilder.Entity<Person>()
                 .HasMany(l => l.LanguagesList)
                 .WithMany(p => p.PeopleList)
                 .UsingEntity(j => j.HasData(new { PeopleListSSN = "2001-11-31-8952", LanguagesListLanguageName = "Japanese" }));
 
-            modelbuilder.Entity<PersonModel>()
+            modelbuilder.Entity<Person>()
                 .HasMany(l => l.LanguagesList)
                 .WithMany(p => p.PeopleList)
                 .UsingEntity(j => j.HasData(new { PeopleListSSN = "1995-03-07-9898", LanguagesListLanguageName = "Swedish" }));

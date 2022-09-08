@@ -1,5 +1,5 @@
 ﻿using LexiconMVC.Data;
-using LexiconMVC.Models.ViewModel;
+using LexiconMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

@@ -6,9 +6,9 @@ namespace LexiconMVC.Models
         [Key]
         public string CityPostalCode { get; set; }
         public string CityName { get; set; }
-        public string? CountryID { get; set; }
+        public string CountryID { get; set; }
         public Country Country { get; set; }
-        public List<PersonModel> People { get; set; } = new List<PersonModel>();
+        public List<Person> People { get; set; } = new List<Person>();
 
     }
 }
