@@ -2,7 +2,7 @@
 using LexiconMVC.ViewModels;
 using LexiconMVC.Models;
 using LexiconMVC.Data;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LexiconMVC.Controllers
 {
@@ -20,7 +20,6 @@ namespace LexiconMVC.Controllers
 
         public IActionResult Index()
         {
-
             var peopleWithCitys = from city in _context.Cities
                                   from people in _context.People
                                   where city.Id == people.CityId
@@ -33,6 +32,7 @@ namespace LexiconMVC.Controllers
 
                                   };
 
+            ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
 
             List<PersonViewModel> allUsers = new List<PersonViewModel>();
 
@@ -141,10 +141,11 @@ namespace LexiconMVC.Controllers
         }
 
         // Tänk på att vi inte behöver använda NewId här. EF kommer skapa ett Id automatiskt åt oss.
-        public ActionResult AddToList(string NewName, int NewPhonenumber, string CityName)
+        public ActionResult AddToList(string NewName, int NewPhonenumber, int cityid)
         {
 
             var checkCityName = from city in _context.Cities
+                                
                                 select new
                                 {
                                     cityId = city.Id,
@@ -155,11 +156,11 @@ namespace LexiconMVC.Controllers
 
             foreach (var city in checkCityName)
             {
-                if (city.cityName == CityName)
+                if (city.cityId == cityid)
                 {
                     model.Name = NewName;
                     model.Phonenumber = NewPhonenumber;
-                    model.CityId = city.cityId;
+                    model.CityId = cityid;
                 }
             }
 

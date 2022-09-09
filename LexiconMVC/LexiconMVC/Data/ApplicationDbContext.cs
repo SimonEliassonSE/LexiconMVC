@@ -5,14 +5,14 @@ namespace LexiconMVC.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        
+
 
         public ApplicationDbContext()
         {
 
         }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
@@ -27,45 +27,60 @@ namespace LexiconMVC.Data
         {
             base.OnModelCreating(modelbuilder);
 
-            //modelbuilder.Entity<Country>().HasData(new Country { Id = 1, CountryName = "Sweden", Continent = "Europe" });
-            //modelbuilder.Entity<Country>().HasData(new Country { Id = 2,CountryName = "Norway", Continent = "Europe" });
-            //modelbuilder.Entity<Country>().HasData(new Country { Id = 3,CountryName = "USA", Continent = "North America" });
-            //modelbuilder.Entity<Country>().HasData(new Country { Id = 4,CountryName = "Mexico", Continent = "South America" });
-            //modelbuilder.Entity<Country>().HasData(new Country { Id = 5,CountryName = "Japan", Continent = "Asia" });
-            //modelbuilder.Entity<Country>().HasData(new Country { Id = 6,CountryName = "Australia", Continent = "Australia" });
+            modelbuilder.Entity<Country>().HasData(new Country { Id = -1, CountryName = "Sweden", Continent = "Europe" });
+            modelbuilder.Entity<Country>().HasData(new Country { Id = -2, CountryName = "Norway", Continent = "Europe" });
+            modelbuilder.Entity<Country>().HasData(new Country { Id = -3, CountryName = "USA", Continent = "North America" });
+            modelbuilder.Entity<Country>().HasData(new Country { Id = -4, CountryName = "Mexico", Continent = "South America" });
+            modelbuilder.Entity<Country>().HasData(new Country { Id = -5, CountryName = "Japan", Continent = "Asia" });
+            modelbuilder.Entity<Country>().HasData(new Country { Id = -6, CountryName = "Australia", Continent = "Australia" });
 
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "41672", CityName = "Gothenburg", CountryID = "+46" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "50632", CityName = "Borås", CountryID = "+46" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "0010", CityName = "Oslo", CountryID = "+47" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "78613", CityName = "Austin", CountryID = "+1" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "22000", CityName = "Tijuana", CountryID = "+52" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "100", CityName = "Tokyo", CountryID = "+82" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "3000", CityName = "Melbourne", CountryID = "+61" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "60601", CityName = "Chicago", CountryID = "+1" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "602", CityName = "Kyoto", CountryID = "+82" });
-            //modelbuilder.Entity<City>().HasData(new City { CityPostalCode = "5005", CityName = "Bergen", CountryID = "+47" });
+            modelbuilder.Entity<City>().HasData(new City { Id = -1, CityName = "Gothenburg", CountryId = -1 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -2, CityName = "Borås", CountryId = -1 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -3, CityName = "Oslo", CountryId = -2 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -4, CityName = "Austin", CountryId = -3 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -5, CityName = "Tijuana", CountryId = -4 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -6, CityName = "Tokyo", CountryId = -5 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -7, CityName = "Melbourne", CountryId = -6 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -8, CityName = "Chicago", CountryId = -3 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -9, CityName = "Kyoto", CountryId = -5 });
+            modelbuilder.Entity<City>().HasData(new City { Id = -10, CityName = "Bergen", CountryId = -2 });
 
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0738450197, Name = "Simon Eliasson", SSN = "1961-03-05-8877", CityID = "41672" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0709952132, Name = "Janne Karlsson", SSN = "198309067744", CityID = "50632" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0782161234, Name = "Annie Svensson", SSN = "199901023366", CityID = "50632" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0741237894, Name = "Kalle Carlsson", SSN = "200509012541", CityID = "100" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0738660102, Name = "Andy Hjert", SSN = "2001-11-31-8952", CityID = "3000" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0759982251, Name = "Björn Bergman", SSN = "1978-01-01-3578", CityID = "100" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0761496378, Name = "Sara Strand", SSN = "1995-03-07-9898", CityID = "60601" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0778852211, Name = "Frida Svensson", SSN = "1969-08-01-7487", CityID = "602" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0778852211, Name = "Andy Karlsson", SSN = "1972-01-03-7497", CityID = "602" });
-            //modelbuilder.Entity<Person>().HasData(new Person { Phonenumber = 0778852211, Name = "Charlie Svensson", SSN = "1989-02-11-6387", CityID = "100" });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -1, Phonenumber = 0738450197, Name = "Simon Eliasson", CityId = -1 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -2, Phonenumber = 0709952132, Name = "Janne Karlsson", CityId = -10 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -3, Phonenumber = 0782161234, Name = "Annie Svensson", CityId = -2 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -4, Phonenumber = 0741237894, Name = "Kalle Carlsson", CityId = -3 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -5, Phonenumber = 0738660102, Name = "Andy Hjert", CityId = -4 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -6, Phonenumber = 0759982251, Name = "Björn Bergman", CityId = -5 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -7, Phonenumber = 0761496378, Name = "Sara Strand", CityId = -6 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -8, Phonenumber = 0778852211, Name = "Frida Svensson", CityId = -7 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -9, Phonenumber = 0778852211, Name = "Andy Karlsson", CityId = -8 });
+            modelbuilder.Entity<Person>().HasData(new Person { Id = -10, Phonenumber = 0778852211, Name = "Charlie Svensson", CityId = -9 });
 
-            //modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Swedish", LanguageShortName = "SWE" });
-            //modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Japanese", LanguageShortName = "JAP" });
-            //modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Norwegian", LanguageShortName = "NOR" });
-            //modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "Spanish", LanguageShortName = "SPA" });
-            //modelbuilder.Entity<Language>().HasData(new Language { LanguageName = "English", LanguageShortName = "USA" });
+            modelbuilder.Entity<Language>().HasData(new Language { Id = -1, LanguageName = "Swedish" });
+            modelbuilder.Entity<Language>().HasData(new Language { Id = -2, LanguageName = "Japanese" });
+            modelbuilder.Entity<Language>().HasData(new Language { Id = -3, LanguageName = "Norwegian" });
+            modelbuilder.Entity<Language>().HasData(new Language { Id = -4, LanguageName = "Spanish" });
+            modelbuilder.Entity<Language>().HasData(new Language { Id = -5, LanguageName = "English" });
 
-            //modelbuilder.Entity<Person>()
-            //    .HasMany(l => l.LanguagesList)
-            //    .WithMany(p => p.PeopleList)
-            //    .UsingEntity(j => j.HasData(new { PeopleListSSN = "1961-03-05-8877", LanguagesListLanguageName = "Swedish" }));
+            modelbuilder.Entity<Person>()
+                .HasMany(l => l.LanguagesList)
+                .WithMany(p => p.PeopleList)
+                .UsingEntity(j => j.HasData(new { PeopleListId = -1, LanguagesListId = -1 }));
+
+            modelbuilder.Entity<Person>()
+                .HasMany(l => l.LanguagesList)
+                .WithMany(p => p.PeopleList)
+                .UsingEntity(j => j.HasData(new { PeopleListId = -1, LanguagesListId = -2 }));
+
+            modelbuilder.Entity<Person>()
+                .HasMany(l => l.LanguagesList)
+                .WithMany(p => p.PeopleList)
+                .UsingEntity(j => j.HasData(new { PeopleListId = -2, LanguagesListId = -3 }));
+
+            modelbuilder.Entity<Person>()
+                .HasMany(l => l.LanguagesList)
+                .WithMany(p => p.PeopleList)
+                .UsingEntity(j => j.HasData(new { PeopleListId = -3, LanguagesListId = -4 }));
 
         }
 

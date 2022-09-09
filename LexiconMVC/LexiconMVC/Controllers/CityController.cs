@@ -36,7 +36,7 @@ namespace LexiconMVC.Controllers
             return View(allUsers);
         }
 
-        public IActionResult AddPersonToCity()
+        public IActionResult UpdatePersonToCityRelation()
         {
 
 
@@ -78,7 +78,7 @@ namespace LexiconMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddPersonToCity(int personid, int cityid)
+        public IActionResult UpdatePersonToCityRelation(int personid, int cityid)
         {
             var person = _context.People.FirstOrDefault(x => x.Id == personid);
             var city = _context.Cities.FirstOrDefault(x => x.Id == cityid);
@@ -92,7 +92,7 @@ namespace LexiconMVC.Controllers
 
 
 
-            return RedirectToAction("AddPersonToCity");
+            return RedirectToAction("UpdatePersonToCityRelation");
         }
 
 

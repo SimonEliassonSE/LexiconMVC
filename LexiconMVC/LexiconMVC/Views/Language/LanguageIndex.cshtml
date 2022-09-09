@@ -10,12 +10,12 @@
    <p></p>
    <a asp-action="AddLanguageToPerson">Add language to a person</a>
 
-    <div class="col-lg-6">
+    <div class="col-lg-10">
     <table class="table">
     <thead>
         <tr>
-            <th>Language</th>
-            <th>Language short</th>   
+            <th>Language Id</th>
+            <th>Language</th>   
             <th></th>
         </tr>
     </thead>
@@ -23,8 +23,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>@item.Id</td>
                 <td>@item.LanguageName</td>
-                <td>@item.LanguageShortName</td>
+                @*<td>@item.LanguageShortName</td>*@
                 <td>
                 </td>
             </tr>

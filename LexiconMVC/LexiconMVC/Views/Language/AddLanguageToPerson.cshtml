@@ -2,29 +2,24 @@
 @{
     ViewData["Title"] = "AddLanguageToPerson";
 }
+<div class="container container-fluid"> 
+<h1>Add language to person</h1>
 
-<h1>AddLanguageToPerson</h1>
 
-<div class="container">
-    <div class="container-fluid">
         <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
        <p></p>
-       <a asp-action="AddPersonToCity">Add person to city</a>
-
-        <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
-        <div class="form-group"></div>
+        <a asp-action="LanguageIndex">Return to Language Menu</a>
+ 
         <form asp-action="AddLanguageToPerson" method="post">
-            <div class="container-fluid col-lg-10">
+
                 <label>Person: </label>
-                <select name="ssn" class="form-control" asp-items="ViewBag.People"></select>
-            </div>
-            <div class="container-fluid col-lg-10">
+                <select name="personid" class="form-control" asp-items="ViewBag.People"></select>
+
+                
                 <label>Language: </label>
-                <select name="languagename" class="form-control" asp-items="ViewBag.Languages"></select>
+                <select name="languageid" class="form-control" asp-items="ViewBag.Languages"></select>
 
                 <input type="submit" value="Add language to person" class="btn btn-primary" />
-            </div>
-        </form>
 
-    </div>
+        </form>
 </div>

@@ -38,7 +38,7 @@ namespace LexiconMVC.Controllers
         }
 
         // Update inte add.
-        public IActionResult AddCityToCountry()
+        public IActionResult UpdateCityToCountryRelation()
         {
 
 
@@ -77,19 +77,28 @@ namespace LexiconMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCityToCountry(int cityid, int countryid)
+        public IActionResult UpdateCityToCountryRelation(int cityid, int countryid)
         {
 
-            var city = _context.Cities.FirstOrDefault(x => x.Id == countryid);
-            var country = _context.Countries.FirstOrDefault(x => x.Id == cityid);
+            var country = _context.Countries.FirstOrDefault(c => c.Id == countryid);
+            var city = _context.Cities.FirstOrDefault(c => c.Id == cityid);
 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 country.Cities.Add(city);
                 _context.SaveChanges();
             }
 
-            return RedirectToAction("AddCityToCountry");
+            //var city = _context.Cities.FirstOrDefault(x => x.Id == countryid);
+            //var country = _context.Countries.FirstOrDefault(x => x.Id == cityid);
+
+            //if (ModelState.IsValid)
+            //{
+            //    country.Cities.Add(city);
+            //    _context.SaveChanges();
+            //}
+
+            return RedirectToAction("UpdateCityToCountryRelation");
         }
 
         public IActionResult ReturnToPeopleIndex()

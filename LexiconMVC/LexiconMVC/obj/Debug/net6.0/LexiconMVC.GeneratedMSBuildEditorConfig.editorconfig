@@ -15,20 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/AddPersonToCity.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxBZGRQZXJzb25Ub0NpdHkuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/CityIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxDaXR5SW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/AddCityToCountry.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxBZGRDaXR5VG9Db3VudHJ5LmNzaHRtbA==
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/UpdatePersonToCityRelation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxVcGRhdGVQZXJzb25Ub0NpdHlSZWxhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/CountryIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxDb3VudHJ5SW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/UpdateCityToCountryRelation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxVcGRhdGVDaXR5VG9Db3VudHJ5UmVsYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Doctor/feverCheck.cshtml]

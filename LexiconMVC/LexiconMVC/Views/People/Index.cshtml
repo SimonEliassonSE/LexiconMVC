@@ -28,7 +28,9 @@
                     <label>Phonenumber</label> <input class="m-0" type="tel" name="NewPhonenumber" required>
                 </div>
                 <div class="addform-label align-content-lg-end ">
-                    <label>City</label> <input class="m-0" type="text" name="CityName" required>
+                    <label>City: </label>
+                <select class ="col-lg-2"  name="cityid" class="form-control" asp-items="ViewBag.Cities"></select>
+                    @*<label>City</label> <input class="m-0" type="text" name="CityName" required>*@
                 </div>
                 <p></p>
                 <input class="align-content-lg-end" type="submit" value="New Person" />
