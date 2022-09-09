@@ -5,7 +5,8 @@ namespace LexiconMVC.Models
     public class Country
     {
         [Key]
-        public string CountryCode { get; set; }
+        public int Id { get; set; } 
+        //public string CountryCode { get; set; }
         public string CountryName { get; set; }
         public string Continent { get; set; }
 

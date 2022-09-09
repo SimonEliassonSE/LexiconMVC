@@ -14,9 +14,9 @@
     <table class="table">
     <thead>
         <tr>
-            <th>CityPostalCode</th>
+            <th>City Id</th>
             <th>City Name</th>   
-            <th>Country Code</th>
+            <th>Country Id</th>
             <th></th>
         </tr>
     </thead>
@@ -24,9 +24,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.CityPostalCode</td>
+                <td>@item.Id</td>
                 <td>@item.CityName</td>
-                <td>@item.CountryID</td>
+                <td>@item.CountryId</td>
                 <td>
                 </td>
             </tr>

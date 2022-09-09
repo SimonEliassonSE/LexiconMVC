@@ -13,11 +13,11 @@
         <form asp-action="AddCityToCountry" method="post">
             <div class="container-fluid col-lg-10">
                 <label>Country: </label>
-                <select name="countrycode" class="form-control" asp-items="ViewBag.Countries"></select>
+                <select name="countryid" class="form-control" asp-items="ViewBag.Countries"></select>
             </div>
             <div class="container-fluid col-lg-10">
                 <label>City: </label>
-                <select name="citypostalcode" class="form-control" asp-items="ViewBag.Cities"></select>
+                <select name="cityid" class="form-control" asp-items="ViewBag.Cities"></select>
                 <input type="submit" value="Add City to Country" class="btn btn-primary" />
             </div>
         </form>
@@ -26,10 +26,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>City</th>
-                    <th>Country name</th>
-                    <th>Countrycode</th>
+                    <th>City Id</th>
+                    <th>Country name</th>                    
                     <th>Continent</th>
+                    <th>City Name</th>
 
                     <th></th>
                 </tr>
@@ -39,10 +39,10 @@
                 {
 
                     <tr>
-                        <td>@item.CityName</td>
-                        <td>@item.CountryName</td>
-                        <td>@item.CountryCode</td>
+                        <td>@item.Id</td>
+                        <td>@item.CountryName</td>                                                                   
                         <td>@item.Continent</td>
+                        <td>@item.CityName</td> 
 
                         <td>
                         </td>

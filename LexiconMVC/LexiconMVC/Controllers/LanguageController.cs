@@ -28,6 +28,7 @@ namespace LexiconMVC.Controllers
             {
                 allUsers.Add(new LanguageViewModel()
                 {
+                    Id = language.Id,
                     LanguageName = language.LanguageName,
                     LanguageShortName = language.LanguageShortName,
 
@@ -39,28 +40,28 @@ namespace LexiconMVC.Controllers
 
         }
 
-        public IActionResult AddLanguageToPerson ()
+        public IActionResult AddLanguageToPerson()
         {
-            ViewBag.Persons = new SelectList(_context.Persons, "SSN", "Name");
-            ViewBag.Languages = new SelectList(_context.Languages, "LanguageName", "LanguageName");
+            ViewBag.People = new SelectList(_context.People, "Id", "Name");
+            ViewBag.Languages = new SelectList(_context.Languages, "Id", "LanguageName");
 
-
-
+             // Hur får man tag på many to many? ska man lägga till en prop i people och lang? 
             return View();
         }
-
+        // Gå igenom LanguageController, views m.m sedan PersonController views osv....
+        
         [HttpPost]
-        public IActionResult AddLanguageToPerson (string ssn, string languagename)
+        public IActionResult AddLanguageToPerson(int ssn, int languagename)
         {
-            var person = _context.Persons.FirstOrDefault(x => x.SSN == ssn);
-            var language = _context.Languages.FirstOrDefault(x => x.LanguageName == languagename);
-            
+            var person = _context.People.FirstOrDefault(x => x.Id == ssn);
+            var language = _context.Languages.FirstOrDefault(x => x.Id == languagename);
+
             if (ModelState.IsValid)
             {
 
                 person.LanguagesList.Add(language);
                 _context.SaveChanges();
-        
+
             }
 
             return RedirectToAction("AddLanguageToPerson");

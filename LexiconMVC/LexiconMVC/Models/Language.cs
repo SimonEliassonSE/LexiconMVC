@@ -5,6 +5,7 @@ namespace LexiconMVC.Models
     public class Language
     {
         [Key]
+        public int Id { get; set; } 
         public string LanguageName { get; set; }
         public string LanguageShortName { get; set; }
 

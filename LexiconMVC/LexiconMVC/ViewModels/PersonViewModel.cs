@@ -6,7 +6,8 @@ namespace LexiconMVC.ViewModels
     public class PersonViewModel
     {
         public Person People { get; set; }
-        public string SSN { get; set; }
+        public int Id { get; set; }
+        //public string SSN { get; set; }
 
         public string Name { get; set; }
 

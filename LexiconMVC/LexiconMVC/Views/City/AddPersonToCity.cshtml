@@ -13,11 +13,11 @@
         <form asp-action="AddPersonToCity" method="post">
             <div class="container-fluid col-lg-10">
                 <label>Person: </label>
-                <select name="ssn" class="form-control" asp-items="ViewBag.Persons"></select>
+                <select name="personid" class="form-control" asp-items="ViewBag.People"></select>
             </div>
             <div class="container-fluid col-lg-10">
                 <label>City: </label>
-                <select name="citypostalcode" class="form-control" asp-items="ViewBag.Cities"></select>
+                <select name="cityid" class="form-control" asp-items="ViewBag.Cities"></select>
 
                 <input type="submit" value="Add person to City" class="btn btn-primary" />
             </div>
@@ -27,7 +27,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>SSN</th>
+                    <th>Id</th>
                     <th>Person Name</th>
                     <th>Phonenumber</th>
                     <th>City</th>
@@ -38,8 +38,8 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.SSN</td>
-                        <td>@item.Name</td>
+                        <td>@item.Id</td>
+                        <td>@item.PersonName</td>
                         <td>@item.Phonenumber</td>
                         <td>@item.CityName</td>
                         <td>
