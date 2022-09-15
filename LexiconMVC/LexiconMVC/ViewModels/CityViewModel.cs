@@ -1,21 +1,21 @@
 ﻿using LexiconMVC.Models;
 
+using System.ComponentModel.DataAnnotations;
+
 namespace LexiconMVC.ViewModels
 
 {
     public class CityViewModel
     {
-        public City City { get; set; }       
         public int Id { get; set; }
-        //public string CityPostalCode { get; set; }
+        [Required]
         public string CityName { get; set; }
+        [Required]
         public int CountryId { get; set; }
-        //public string CountryID { get; set; }
-        public Person PersonModel { get; set; }
-        public int PersonId { get; set; }
 
-        public string PersonName { get; set; }
+        public List<City> CityList { get; set; } = new List<City>();
+     
+        public List<Country> CountryList { get; set; } = new List<Country>();
 
-        public int Phonenumber { get; set; }
     }
 }

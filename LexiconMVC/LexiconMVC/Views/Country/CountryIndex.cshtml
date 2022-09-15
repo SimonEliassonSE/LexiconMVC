@@ -1,13 +1,49 @@
-﻿@model List<CountryViewModel>
+﻿@model IEnumerable<Country>
 
 
 @{
     ViewData["Title"] = "CountryIndex";
 }
 
-<h1>CountryIndex</h1>
-       
-  <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
+  
+<div class="CountryContainer col-lg-8">
+    <h1>Country Index</h1>
+    <div class="CountryTable">
+        <table class="table CountryTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>Country Id</th>
+                    <th>Country</th>
+                    <th>Continent</th>
+                    <th>Delete/Edit</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CountryName</td>
+                        <td>@item.Continent</td>
+                        <td>@Html.ActionLink("Delete", "DeleteCountryFromList", new {countryId = item.Id}) | @Html.ActionLink("Edit", "EditCountry", new { countryId = item.Id}) </td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+        <div class="CountryHeader container-fluid">
+        <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="Create Country" onclick="location.href='@Url.Action("CreateNewCountry", "Country")'" />
+    </div>
+</div>
+
+
+
+@*  <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
    <p></p>
    <a asp-action="UpdateCityToCountryRelation">Update City to Country Relation</a>
 
@@ -35,4 +71,4 @@
     </tbody>
 </table>
 </div>
-
+*@

@@ -61,6 +61,7 @@ namespace LexiconMVC.Data
             modelbuilder.Entity<Language>().HasData(new Language { Id = -3, LanguageName = "Norwegian" });
             modelbuilder.Entity<Language>().HasData(new Language { Id = -4, LanguageName = "Spanish" });
             modelbuilder.Entity<Language>().HasData(new Language { Id = -5, LanguageName = "English" });
+ 
 
             modelbuilder.Entity<Person>()
                 .HasMany(l => l.LanguagesList)

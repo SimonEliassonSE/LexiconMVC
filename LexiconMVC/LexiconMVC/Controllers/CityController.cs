@@ -1,7 +1,9 @@
 ﻿using LexiconMVC.Data;
+using LexiconMVC.Models;
 using LexiconMVC.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace LexiconMVC.Controllers
 {
@@ -14,88 +16,86 @@ namespace LexiconMVC.Controllers
             _context = context;
         }
 
+        public static CityViewModel cvm = new CityViewModel();
+
         public IActionResult CityIndex()
         {
 
-            var citydata = from city in _context.Cities select city;
- 
-            List<CityViewModel> allUsers = new List<CityViewModel>();
+            cvm.CityList = _context.Cities.Include(x => x.Country).ToList(); 
+            return View(cvm);
 
-            foreach (var city in citydata)
-            {
-                allUsers.Add(new CityViewModel()
-                {
-                    Id = city.Id,
-                    CityName = city.CityName,
-                    CountryId = city.CountryId
-
-                });
-            }
-
-
-            return View(allUsers);
         }
 
-        public IActionResult UpdatePersonToCityRelation()
+        
+
+        public IActionResult CreateNewCity()
         {
+            ViewBag.Countries = new SelectList(_context.Countries, "Id", "CountryName");
 
-
-            ViewBag.People = new SelectList(_context.People, "Id", "Name");
-            ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
-
-            // Där man skapar person måste det finnas en dropDown SelectList med namn som sedan säger där namn = city.Id person.CityId add city.Id
-            var peopleWithCitys = from city in _context.Cities
-                                  from person in _context.People
-                                  where city.Id == person.CityId
-                                  select new
-                                  {
-                                      personId = person.Id,
-                                      personName = person.Name,
-                                      personPhonenumber = person.Phonenumber,
-                                      personCity = city.CityName
-
-                                  };
-
-
-
-
-            List<CityViewModel> allUsers = new List<CityViewModel>();
-
-            foreach (var person in peopleWithCitys)
-            {
-                allUsers.Add(new CityViewModel()
-                {
-                    PersonId = person.personId,
-                    PersonName = person.personName,
-                    Phonenumber = person.personPhonenumber,
-                    CityName = person.personCity
-
-                });
-            }
-
-            return View(allUsers);
-
+            cvm.CityList = _context.Cities.Include(x => x.Country).ToList(); 
+            return View(cvm);
         }
 
         [HttpPost]
-        public IActionResult UpdatePersonToCityRelation(int personid, int cityid)
+        public ActionResult CreateNewCity(CityViewModel mod, int countryid)
         {
-            var person = _context.People.FirstOrDefault(x => x.Id == personid);
-            var city = _context.Cities.FirstOrDefault(x => x.Id == cityid);
 
             if (ModelState.IsValid)
             {
-                city.People.Add(person);
+                City c = new City();
+                c.CityName = mod.CityName;
+                c.CountryId = countryid;
+                _context.Cities.Add(c);
                 _context.SaveChanges();
             }
 
+            return RedirectToAction("CreateNewCity");
+        }
+        public ActionResult DeleteCityFromList(int DeleteId)
+        {
+
+            var city = _context.Cities.FirstOrDefault(x => x.Id == DeleteId);
+
+            _context.Cities.Remove(city);
+            _context.SaveChanges();
+
+            return RedirectToAction("CityIndex");
 
 
 
-            return RedirectToAction("UpdatePersonToCityRelation");
         }
 
+        public IActionResult EditCity(int cityId)
+        {
+            ViewBag.Countries = new SelectList(_context.Countries, "Id", "CountryName");
+            var city = _context.Cities.FirstOrDefault(x => x.Id == cityId);
+            CityViewModel cvm = new CityViewModel();
+            cvm.Id = city.Id;
+            cvm.CountryId = city.CountryId;
+            cvm.CityName = city.CityName;
+            cvm.CountryList = _context.Countries.ToList();
 
+            return View(cvm);
+        }
+
+        [HttpPost]
+        public IActionResult EditCity(CityViewModel cvm, int countryId)
+        {
+            City c = _context.Cities.FirstOrDefault(c => c.Id == cvm.Id);
+            
+            c.CountryId = countryId;
+            c.CityName = cvm.CityName;
+            _context.Update(c);
+            _context.SaveChanges();
+
+            //mod.CCVM.CityName = 
+
+            //var city = _context.Cities.FirstOrDefault(x => x.Id == EditId);
+            //_context.Cities.Update(city);
+            //_context.SaveChanges();
+
+            return RedirectToAction("CityIndex");
+        }
         public IActionResult ReturnToPeopleIndex()
         {
 

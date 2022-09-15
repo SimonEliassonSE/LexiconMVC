@@ -1,35 +1,40 @@
-﻿@model List<LanguageViewModel>
+﻿@model LanguageViewModel
 
 @{
     ViewData["Title"] = "LanguageIndex";
 }
 
-<h1>LanguageIndex</h1>
+<div class="CityContainer col-lg-8">
+    <h1>Language Index</h1>
+    <div class="CityTable">
+        <table class="table CityTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>Laguage Id</th>
+                    <th>Language</th>  
+                    <th>Delete/Edit</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-<a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
-   <p></p>
-   <a asp-action="AddLanguageToPerson">Add language to a person</a>
-
-    <div class="col-lg-10">
-    <table class="table">
-    <thead>
-        <tr>
-            <th>Language Id</th>
-            <th>Language</th>   
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.LanguageName</td>
-                @*<td>@item.LanguageShortName</td>*@
-                <td>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            <tbody>
+                @foreach (var item in Model.LanguageList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.LanguageName</td>                       
+                        <td>@Html.ActionLink("Delete", "DeleteLanguageFromList", new {languageId = item.Id}) | @Html.ActionLink("Edit", "EditLanguage", new { languageId = item.Id}) </td>
+                        @*<td> <a asp-controller="Language" asp-action="EditLanguage" asp-for="Id">Edit</a>  | <a asp-controller="Language" asp-action="DeleteLanguage" asp-for="Id">Delete</a> </td>*@
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+        <div class="CityHeader container-fluid">
+        <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="Create New Language" onclick="location.href='@Url.Action("CreateNewLanguage", "Language")'" />
+    </div>
 </div>
+

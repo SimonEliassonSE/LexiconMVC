@@ -1,20 +1,18 @@
 ﻿using LexiconMVC.Models;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace LexiconMVC.ViewModels
 {
     public class PersonViewModel
     {
-        public Person People { get; set; }
         public int Id { get; set; }
-        //public string SSN { get; set; }
 
+        [Required]
         public string Name { get; set; }
-
+        [Required]
         public int Phonenumber { get; set; }
 
+        public int CityId { get; set; }
 
-        public City City { get; set; }
-        public string CityName { get; set; }
     }
 }

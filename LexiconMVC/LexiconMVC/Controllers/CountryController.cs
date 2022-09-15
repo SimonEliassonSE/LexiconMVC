@@ -1,5 +1,6 @@
 ﻿using LexiconMVC.Data;
 using LexiconMVC.ViewModels;
+using LexiconMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -9,97 +10,156 @@ namespace LexiconMVC.Controllers
     {
         readonly ApplicationDbContext _context;
 
+        public static List<Country> countryList = new List<Country>();
+        public static CreateCountryViewModel ccvm = new CreateCountryViewModel();
+
         public CountryController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public IActionResult CountryIndex()
-        {
-
-            var countrydata = from country in _context.Countries select country;
-
-            List<CountryViewModel> allUsers = new List<CountryViewModel>();
-
-            foreach (var country in countrydata)
-            {
-                allUsers.Add(new CountryViewModel()
-                {
-
-                    Id = country.Id,
-                    CountryName = country.CountryName,
-                    Continent = country.Continent,
-
-                });
-            }
-
-
-            return View(allUsers);
+        {            
+            countryList = _context.Countries.ToList();
+            return View(countryList);
         }
 
         // Update inte add.
-        public IActionResult UpdateCityToCountryRelation()
+        
+        public IActionResult CreateNewCountry()
         {
 
-
-            ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
-            ViewBag.Countries = new SelectList(_context.Countries, "Id", "CountryName");
-
-            var countryQuery = from countries in _context.Countries
-                               from cities in _context.Cities
-                               where cities.CountryId == countries.Id
-                               select new
-                               {
-                                   CountryId = countries.Id,
-                                   CountryName = countries.CountryName,
-                                   Contitent = countries.Continent,
-                                   CityName = cities.CityName
-                               };
-
-            List<CountryViewModel> allUsers = new List<CountryViewModel>();
-
-            foreach (var country in countryQuery)
-            {
-                allUsers.Add(new CountryViewModel()
-                {
-
-                    Id = country.CountryId,
-                    CountryName = country.CountryName,
-                    Continent = country.Contitent,
-                    CityName = country.CityName
-
-
-                });
-            }
-
-            return View(allUsers);
-
+            ccvm.CountriesList = _context.Countries.ToList();
+            //= _context.Countries.ToList();
+            return View(ccvm);
+            
         }
 
         [HttpPost]
-        public IActionResult UpdateCityToCountryRelation(int cityid, int countryid)
+        public IActionResult CreateNewCountry(CreateCountryViewModel mod)
         {
-
-            var country = _context.Countries.FirstOrDefault(c => c.Id == countryid);
-            var city = _context.Cities.FirstOrDefault(c => c.Id == cityid);
-
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                country.Cities.Add(city);
+                Country c = new Country();
+                c.CountryName = mod.CountryName;
+                c.Continent = mod.Continent;
+                _context.Countries.Add(c);
                 _context.SaveChanges();
             }
 
-            //var city = _context.Cities.FirstOrDefault(x => x.Id == countryid);
-            //var country = _context.Countries.FirstOrDefault(x => x.Id == cityid);
+            return RedirectToAction("CreateNewCountry");
 
-            //if (ModelState.IsValid)
-            //{
-            //    country.Cities.Add(city);
-            //    _context.SaveChanges();
-            //}
-
-            return RedirectToAction("UpdateCityToCountryRelation");
         }
+
+        public IActionResult DeleteCountryFromList(int countryId)
+        {
+            var country = _context.Countries.FirstOrDefault(x => x.Id == countryId);
+
+            _context.Countries.Remove(country);
+            _context.SaveChanges();
+
+            return RedirectToAction("CountryIndex");
+        }
+
+
+        public IActionResult EditCountry(int countryId)
+        {
+
+            var country = _context.Countries.FirstOrDefault(x => x.Id == countryId);
+            Country co = new Country();
+            co.Id = country.Id;
+            co.CountryName = country.CountryName;
+            co.Continent = country.Continent;
+            co.Cities = _context.Cities.ToList();
+
+            return View(co);
+        }
+
+        [HttpPost]
+        public IActionResult EditCountry(Country co, string countryName, string continent)
+        {
+            Country c = _context.Countries.FirstOrDefault(c => c.Id == co.Id);
+
+            c.CountryName = countryName;
+            c.Continent = continent;
+            //c.CityName = cvm.CityName;
+            _context.Update(c);
+            _context.SaveChanges();
+
+            //mod.CCVM.CityName = 
+
+            //var city = _context.Cities.FirstOrDefault(x => x.Id == EditId);
+            //_context.Cities.Update(city);
+            //_context.SaveChanges();
+
+            return RedirectToAction("CountryIndex");
+        }
+
+
+
+
+        //public IActionResult UpdateCityToCountryRelation()
+        //{
+
+
+        //    ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
+        //    ViewBag.Countries = new SelectList(_context.Countries, "Id", "CountryName");
+
+        //    var countryQuery = from countries in _context.Countries
+        //                       from cities in _context.Cities
+        //                       where cities.CountryId == countries.Id
+        //                       select new
+        //                       {
+        //                           CountryId = countries.Id,
+        //                           CountryName = countries.CountryName,
+        //                           Contitent = countries.Continent,
+        //                           CityName = cities.CityName
+        //                       };
+
+        //    List<CountryViewModel> allUsers = new List<CountryViewModel>();
+
+        //    foreach (var country in countryQuery)
+        //    {
+        //        allUsers.Add(new CountryViewModel()
+        //        {
+
+        //            Id = country.CountryId,
+        //            CountryName = country.CountryName,
+        //            Continent = country.Contitent,
+        //            CityName = country.CityName
+
+
+        //        });
+        //    }
+
+        //    return View(allUsers);
+
+        //}
+
+        //[HttpPost]
+        //public IActionResult UpdateCityToCountryRelation(int cityid, int countryid)
+        //{
+
+        //    var country = _context.Countries.FirstOrDefault(c => c.Id == countryid);
+        //    var city = _context.Cities.FirstOrDefault(c => c.Id == cityid);
+
+        //    if(ModelState.IsValid)
+        //    {
+        //        country.Cities.Add(city);
+        //        _context.SaveChanges();
+        //    }
+
+        //    //var city = _context.Cities.FirstOrDefault(x => x.Id == countryid);
+        //    //var country = _context.Countries.FirstOrDefault(x => x.Id == cityid);
+
+        //    //if (ModelState.IsValid)
+        //    //{
+        //    //    country.Cities.Add(city);
+        //    //    _context.SaveChanges();
+        //    //}
+
+        //    return RedirectToAction("UpdateCityToCountryRelation");
+        //}
 
         public IActionResult ReturnToPeopleIndex()
         {

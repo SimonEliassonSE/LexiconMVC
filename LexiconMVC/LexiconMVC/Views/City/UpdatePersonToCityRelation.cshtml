@@ -1,4 +1,6 @@
-﻿@model List<CityViewModel>
+﻿
+@*
+@model List<CityViewModel>
 @{
     ViewData["Title"] = "UpdatePersonToCityRelation";
 }
@@ -26,7 +28,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    @*<th>Person Id</th>*@
+                    <th>Person Id</th>
                     <th>Person Name</th>
                     <th>Phonenumber</th>
                     <th>City</th>
@@ -37,8 +39,8 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        @*<td>@item.PersonId</td>*@
-                        <td>@item.PersonName</td>
+                        @*<td>@item.PersonId</td>
+                       <td>@item.PersonName</td>
                         <td>@item.Phonenumber</td>
                         <td>@item.CityName</td>
                         <td>
@@ -50,3 +52,4 @@
     </div>
 
 </div>
+*@

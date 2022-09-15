@@ -1,11 +1,11 @@
-﻿@model List<PersonViewModel>
+﻿@model PeopleViewModel
 
 
 <div class="col-lg-10" id="DisplayPeopleTable">
-        @foreach (PersonViewModel item in Model)
+        @foreach (Person item in Model.PeopleList)
         {
             <div class="row col-lg-12">
-                <p>| @item.Id | @item.Name | @item.Phonenumber | @item.CityName | @Html.ActionLink("Delete", "DeleteFromList", new {DeleteId = item.Id}) |</p>
+                <p>| @item.Id | @item.Name | @item.Phonenumber | @item.City.CityName | @Html.ActionLink("Delete", "DeleteFromList", new {DeleteId = item.Id}) | @Html.ActionLink("Édit", "EditPerson", new {personId = item.Id}) |</p>
             </div>
         }
 </div>

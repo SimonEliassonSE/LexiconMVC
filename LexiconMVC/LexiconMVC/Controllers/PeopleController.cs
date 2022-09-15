@@ -3,6 +3,7 @@ using LexiconMVC.ViewModels;
 using LexiconMVC.Models;
 using LexiconMVC.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace LexiconMVC.Controllers
 {
@@ -15,111 +16,40 @@ namespace LexiconMVC.Controllers
             _context = context;
         }
 
-
+        public static PeopleViewModel pvm = new PeopleViewModel();
 
 
         public IActionResult Index()
         {
-            var peopleWithCitys = from city in _context.Cities
-                                  from people in _context.People
-                                  where city.Id == people.CityId
-                                  select new
-                                  {
-                                      personId = people.Id,
-                                      personName = people.Name,
-                                      personPhonenumber = people.Phonenumber,
-                                      personCity = city.CityName
-
-                                  };
-
+            pvm.PeopleList = _context.People.Include(x => x.City).ToList();
             ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
 
-            List<PersonViewModel> allUsers = new List<PersonViewModel>();
-
-            foreach (var person in peopleWithCitys)
-            {
-                allUsers.Add(new PersonViewModel()
-                {
-                    Id = person.personId,
-                    Name = person.personName,
-                    Phonenumber = person.personPhonenumber,
-                    CityName = person.personCity
-
-                });
-            }
-
-            return View(allUsers);
+            return View(pvm);
 
         }
 
-
-        public ActionResult FindUser(string SearchObject)
+        // Span reagerar på finduser?, något stämmer inte riktigt 
+        public ActionResult FindUser(PeopleViewModel mod)
         {
-            // Finds people with city's added to them. 
-            var searchQueryNameHaveCity = from person in _context.People
-                                          from city in _context.Cities
-                                          where person.Name == SearchObject
-                                          where person.CityId == city.Id
-
-                                          select new
-                                          {
-                                              personName = person.Name,
-                                              personId = person.Id,
-                                              personPhone = person.Phonenumber,
-                                              personCity = city.CityName
-                                          };
-
-            // Gets search done on City, if there is a person with cityPostalCode that match city.CityPostalCode we add it to the select
-            var searchQueryCity = from person in _context.People
-                                  from city in _context.Cities
-                                  where city.CityName == SearchObject
-                                  where person.CityId == city.Id
-
-                                  select new
-                                  {
-                                      personName = person.Name,
-                                      personId = person.Id,
-                                      personPhone = person.Phonenumber,
-                                      personCity = city.CityName
-                                  };
-
-            List<PersonViewModel> newSearchDone = new List<PersonViewModel>();
-
-            foreach (var person in searchQueryNameHaveCity)
+            if (!String.IsNullOrEmpty(mod.SearchFilter))
             {
+                StringComparison comp = StringComparison.OrdinalIgnoreCase;
+                var filteredPeople = pvm.PeopleList
+                    .Where(x => x.Name.Contains(mod.SearchFilter, comp) || x.City.CityName.Contains(mod.SearchFilter, comp)).ToList();
+                var m = new PeopleViewModel();
+                m.PeopleList = filteredPeople;
 
-                newSearchDone.Add(new PersonViewModel()
-                {
-
-                    Id = person.personId,
-                    Name = person.personName,
-                    Phonenumber = person.personPhone,
-                    CityName = person.personCity
-                });
-            }
-
-            foreach (var person in searchQueryCity)
-            {
-
-                newSearchDone.Add(new PersonViewModel()
-                {
-
-                    Id = person.personId,
-                    Name = person.personName,
-                    Phonenumber = person.personPhone,
-                    CityName = person.personCity
-                });
+                return View("Index", m);
 
             }
 
-            // If Searchbutton is "clicked" without input, we go back to index and display the default list
-            if (SearchObject == null)
+            else
             {
                 return RedirectToAction("Index");
 
             }
 
-            return View("Index", newSearchDone);
+            
 
         }
 
@@ -140,35 +70,53 @@ namespace LexiconMVC.Controllers
 
         }
 
-        // Tänk på att vi inte behöver använda NewId här. EF kommer skapa ett Id automatiskt åt oss.
-        public ActionResult AddToList(string NewName, int NewPhonenumber, int cityid)
+
+        [HttpPost]
+        public ActionResult AddToList(PeopleViewModel mod, int cityid)
         {
 
-            var checkCityName = from city in _context.Cities
-                                
-                                select new
-                                {
-                                    cityId = city.Id,
-                                    cityName = city.CityName
-                                };
+ 
+            ModelState.Remove("SearchFilter");
 
-            Person model = new Person();
-
-            foreach (var city in checkCityName)
-            {
-                if (city.cityId == cityid)
-                {
-                    model.Name = NewName;
-                    model.Phonenumber = NewPhonenumber;
-                    model.CityId = cityid;
-                }
-            }
 
             if (ModelState.IsValid)
             {
-                _context.People.Add(model);
+                Person p = new Person();
+                p.Name = mod.PVM.Name;
+                p.Phonenumber = mod.PVM.Phonenumber;
+                p.CityId = cityid;
+                _context.People.Add(p);
                 _context.SaveChanges();
             }
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult EditPerson(int personId)
+        {
+            ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
+            var person = _context.People.FirstOrDefault(x => x.Id == personId);
+            PeopleViewModel mod = new PeopleViewModel();
+            mod.PVM.Id = person.Id;
+            mod.PVM.Name = person.Name;
+            mod.PVM.Phonenumber = person.Phonenumber;
+            mod.PVM.CityId = person.CityId;
+            mod.PeopleList = _context.People.ToList();
+            mod.LanguageList = _context.Languages.ToList();
+
+            return View(mod);
+        }
+
+        [HttpPost]
+        public IActionResult EditPerson(PeopleViewModel mod)
+        {
+            Person p = _context.People.FirstOrDefault(c => c.Id == mod.PVM.Id);
+
+            p.Name = mod.PVM.Name;
+            p.CityId = mod.PVM.CityId;
+
+            _context.Update(p);
+            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }

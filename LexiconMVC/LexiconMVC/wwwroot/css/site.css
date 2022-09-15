@@ -17,18 +17,6 @@ PeopleContainer{
     text-align:end;
 }
 
-#Search{
-    
-}
-
-#AddPerson{
-    
-}
-
-#DisplayPeopleTable{
-
-   
-}
 #CardBody{
     margin: 20px auto;
     padding: 10px;
@@ -37,4 +25,20 @@ PeopleContainer{
 #ButtonContainer{
     margin: 30px auto;
     padding: 10px;
+}
+
+.CityContainer, .CreateCityContainer, .CountryContainer, .CreateCountryContainer {
+    margin: 30px auto;
+}
+
+.CityTable, . CreateCountryTable., CreateCityTable {
+    margin: 10px auto;
+}
+
+/*.CreateCityForm,*/ .CountryHeader {
+    text-align: center;
+}
+
+.CreateCountryHeader, .CountryHeader, .CityHeader, .CreateCityHeader {
+    text-align: left;
 }

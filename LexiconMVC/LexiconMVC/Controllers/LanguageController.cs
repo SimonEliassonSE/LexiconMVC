@@ -14,6 +14,9 @@ namespace LexiconMVC.Controllers
 
         readonly ApplicationDbContext _context;
 
+        public static LanguageViewModel lvm = new LanguageViewModel();
+
+
         public LanguageController(ApplicationDbContext context)
         {
             _context = context;
@@ -22,26 +25,75 @@ namespace LexiconMVC.Controllers
 
         public IActionResult LanguageIndex()
         {
-
-            var languagedata = from language in _context.Languages select language;
-
-            List<LanguageViewModel> allUsers = new List<LanguageViewModel>();
-
-            foreach (var language in languagedata)
-            {
-                allUsers.Add(new LanguageViewModel()
-                {
-                    Id = language.Id,
-                    LanguageName = language.LanguageName,
+           
+            lvm.LanguageList = _context.Languages.ToList();
 
 
-                });
-            }
-
-
-            return View(allUsers);
+            return View(lvm);
 
         }
+
+
+
+        public IActionResult CreateNewLanguage()
+        {
+
+            lvm.LanguageList = _context.Languages.ToList();
+
+            return View(lvm);
+        }
+
+        [HttpPost]
+        public IActionResult CreateNewLanguage(LanguageViewModel mod)
+        {
+            if (ModelState.IsValid)
+            {
+                Language l = new Language();
+                l.LanguageName = mod.LanguageName;
+                _context.Languages.Add(l);
+                _context.SaveChanges();
+
+            }
+
+            return RedirectToAction("CreateNewLanguage");
+        }
+
+        public IActionResult DeleteLanguageFromList(int languageId)
+        {
+            var language = _context.Languages.FirstOrDefault(x => x.Id == languageId);
+
+            _context.Languages.Remove(language);
+            _context.SaveChanges();
+
+            return RedirectToAction("LanguageIndex");
+        }
+
+
+        public IActionResult EditLanguage(int languageId)
+        {
+            var language = _context.Languages.FirstOrDefault(x => x.Id == languageId);
+
+            Language la = new Language();
+            la.Id = language.Id;
+            la.LanguageName = language.LanguageName;
+            la.PeopleList = _context.People.ToList();
+
+            return View(la);
+        }
+
+        [HttpPost]
+        public IActionResult EditLanguage(Language la, string languageName)
+        {
+            Language l = _context.Languages.FirstOrDefault(l => l.Id == la.Id);
+
+            l.LanguageName = languageName;
+            _context.Update(l);
+            _context.SaveChanges();
+
+            return RedirectToAction("LanguageIndex");
+        }
+
+
 
         public IActionResult AddLanguageToPerson()
         {

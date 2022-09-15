@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cF51PN1ffzsEz14F942zMry3BRfP4gJF6lvqFxop20moj5/7JupZGyQmDHlamIsFpN0ww6NfHjm8vQjn2eTk7A==",
+  "dgSpecHash": "rgpoig63hZQsvAgMfDIozUQQnr1jetsJq20ilXk+YgaItiJhVG6XTDNvintqYF2DsQ6YaC5C44fPbMd1pnSi2Q==",
   "success": true,
-  "projectFilePath": "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj",
+  "projectFilePath": "C:\\Users\\elias\\Desktop\\Lexicon studier\\LexiconExcercices\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elias\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\elias\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
