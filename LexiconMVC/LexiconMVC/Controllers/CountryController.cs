@@ -3,9 +3,11 @@ using LexiconMVC.ViewModels;
 using LexiconMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LexiconMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountryController : Controller
     {
         readonly ApplicationDbContext _context;
@@ -51,9 +53,9 @@ namespace LexiconMVC.Controllers
 
         }
 
-        public IActionResult DeleteCountryFromList(int countryId)
+        public IActionResult DeleteCountryFromList(int id)
         {
-            var country = _context.Countries.FirstOrDefault(x => x.Id == countryId);
+            var country = _context.Countries.FirstOrDefault(x => x.Id == id);
 
             _context.Countries.Remove(country);
             _context.SaveChanges();
@@ -62,10 +64,10 @@ namespace LexiconMVC.Controllers
         }
 
 
-        public IActionResult EditCountry(int countryId)
+        public IActionResult EditCountry(int id)
         {
 
-            var country = _context.Countries.FirstOrDefault(x => x.Id == countryId);
+            var country = _context.Countries.FirstOrDefault(x => x.Id == id);
             Country co = new Country();
             co.Id = country.Id;
             co.CountryName = country.CountryName;

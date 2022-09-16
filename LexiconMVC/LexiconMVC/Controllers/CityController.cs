@@ -1,12 +1,14 @@
 ﻿using LexiconMVC.Data;
 using LexiconMVC.Models;
 using LexiconMVC.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace LexiconMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CityController : Controller
     {
         readonly ApplicationDbContext _context;
@@ -51,10 +53,10 @@ namespace LexiconMVC.Controllers
 
             return RedirectToAction("CreateNewCity");
         }
-        public ActionResult DeleteCityFromList(int DeleteId)
+        public ActionResult DeleteCityFromList(int id)
         {
 
-            var city = _context.Cities.FirstOrDefault(x => x.Id == DeleteId);
+            var city = _context.Cities.FirstOrDefault(x => x.Id == id);
 
             _context.Cities.Remove(city);
             _context.SaveChanges();
@@ -65,10 +67,10 @@ namespace LexiconMVC.Controllers
 
         }
 
-        public IActionResult EditCity(int cityId)
+        public IActionResult EditCity(int id)
         {
             ViewBag.Countries = new SelectList(_context.Countries, "Id", "CountryName");
-            var city = _context.Cities.FirstOrDefault(x => x.Id == cityId);
+            var city = _context.Cities.FirstOrDefault(x => x.Id == id);
             CityViewModel cvm = new CityViewModel();
             cvm.Id = city.Id;
             cvm.CountryId = city.CountryId;

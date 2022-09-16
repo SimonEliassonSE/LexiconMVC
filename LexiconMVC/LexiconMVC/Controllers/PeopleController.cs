@@ -4,12 +4,17 @@ using LexiconMVC.Models;
 using LexiconMVC.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LexiconMVC.Controllers
 {
+
+    [Authorize(Roles = "Admin, User")]
     public class PeopleController : Controller
     {
         readonly ApplicationDbContext _context;
+
 
         public PeopleController(ApplicationDbContext context)
         {
@@ -56,10 +61,10 @@ namespace LexiconMVC.Controllers
 
 
 
-        public ActionResult DeleteFromList(int DeleteId)
+        public ActionResult DeleteFromList(int id)
         {
 
-            var person = _context.People.FirstOrDefault(x => x.Id == DeleteId);
+            var person = _context.People.FirstOrDefault(x => x.Id == id);
 
             _context.People.Remove(person);
             _context.SaveChanges();
@@ -92,10 +97,10 @@ namespace LexiconMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult EditPerson(int personId)
+        public IActionResult EditPerson(int id)
         {
             ViewBag.Cities = new SelectList(_context.Cities, "Id", "CityName");
-            var person = _context.People.FirstOrDefault(x => x.Id == personId);
+            var person = _context.People.FirstOrDefault(x => x.Id == id);
             PeopleViewModel mod = new PeopleViewModel();
             mod.PVM.Id = person.Id;
             mod.PVM.Name = person.Name;

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LexiconMVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LanguageController : Controller
     {
 
@@ -58,9 +60,9 @@ namespace LexiconMVC.Controllers
             return RedirectToAction("CreateNewLanguage");
         }
 
-        public IActionResult DeleteLanguageFromList(int languageId)
+        public IActionResult DeleteLanguageFromList(int id)
         {
-            var language = _context.Languages.FirstOrDefault(x => x.Id == languageId);
+            var language = _context.Languages.FirstOrDefault(x => x.Id == id);
 
             _context.Languages.Remove(language);
             _context.SaveChanges();
@@ -69,9 +71,9 @@ namespace LexiconMVC.Controllers
         }
 
 
-        public IActionResult EditLanguage(int languageId)
+        public IActionResult EditLanguage(int id)
         {
-            var language = _context.Languages.FirstOrDefault(x => x.Id == languageId);
+            var language = _context.Languages.FirstOrDefault(x => x.Id == id);
 
             Language la = new Language();
             la.Id = language.Id;

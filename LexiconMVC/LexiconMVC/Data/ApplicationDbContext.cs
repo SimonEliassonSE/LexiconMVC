@@ -1,9 +1,11 @@
 ﻿using LexiconMVC.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LexiconMVC.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser> 
     {
 
 
@@ -82,6 +84,47 @@ namespace LexiconMVC.Data
                 .HasMany(l => l.LanguagesList)
                 .WithMany(p => p.PeopleList)
                 .UsingEntity(j => j.HasData(new { PeopleListId = -3, LanguagesListId = -4 }));
+
+            string adminRoleId = Guid.NewGuid().ToString();
+            string userRoleId = Guid.NewGuid().ToString();
+            string userId = Guid.NewGuid().ToString();
+
+            modelbuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = adminRoleId,
+                Name = "Admin",
+                NormalizedName = "ADMIN"
+
+            });
+
+            modelbuilder.Entity<IdentityRole>().HasData(new IdentityRole
+            {
+                Id = userRoleId,
+                Name = "User",
+                NormalizedName = "USER"
+            });
+
+            PasswordHasher<ApplicationUser> hasher = new PasswordHasher<ApplicationUser>();
+
+            modelbuilder.Entity<ApplicationUser>().HasData(new ApplicationUser
+            {
+                Id=userId,
+                Email="admin@admin.com",
+                NormalizedEmail="ADMIN@ADMIN.COM",
+                UserName="admin@admin.com",
+                NormalizedUserName="ADMIN@ADMIN.COM",
+                FirstName ="Admin",
+                LastName ="Adminsson",
+                BirthDate ="1800-01-01",
+                PasswordHash = hasher.HashPassword(null,"password")
+                // Värt & notera att man kan bypassa lösenords kraven när man seedar in lösenord!
+            });
+
+            modelbuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = adminRoleId,
+                UserId = userId
+            });
 
         }
 

@@ -23,8 +23,12 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.LanguageName</td>                       
-                        <td>@Html.ActionLink("Delete", "DeleteLanguageFromList", new {languageId = item.Id}) | @Html.ActionLink("Edit", "EditLanguage", new { languageId = item.Id}) </td>
-                        @*<td> <a asp-controller="Language" asp-action="EditLanguage" asp-for="Id">Edit</a>  | <a asp-controller="Language" asp-action="DeleteLanguage" asp-for="Id">Delete</a> </td>*@
+                        <td>
+                            <a asp-action="EditLanguage" asp-route-id="@item.Id" class="btn btn-success">Edit</a>  
+                            <a asp-action="DeleteLanguageFromList" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            @*@Html.ActionLink("Delete", "DeleteLanguageFromList", new {languageId = item.Id}) | 
+                            @Html.ActionLink("Edit", "EditLanguage", new { languageId = item.Id}) </td>*@
+                        
                         <td>
                         </td>
                     </tr>
@@ -33,8 +37,9 @@
         </table>
     </div>
         <div class="CityHeader container-fluid">
-        <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
-        <input type="button" value="Create New Language" onclick="location.href='@Url.Action("CreateNewLanguage", "Language")'" />
+        <input type="button" value="Main menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="Create new language" onclick="location.href='@Url.Action("CreateNewLanguage", "Language")'" />
+        <input type="button" value="Add language to person" onclick="location.href='@Url.Action("AddLanguageToPerson", "Language")'" />
     </div>
 </div>
 

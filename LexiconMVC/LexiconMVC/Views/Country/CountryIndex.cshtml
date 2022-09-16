@@ -27,7 +27,10 @@
                         <td>@item.Id</td>
                         <td>@item.CountryName</td>
                         <td>@item.Continent</td>
-                        <td>@Html.ActionLink("Delete", "DeleteCountryFromList", new {countryId = item.Id}) | @Html.ActionLink("Edit", "EditCountry", new { countryId = item.Id}) </td>
+                        <td> <a asp-action="EditCountry" asp-route-id="@item.Id" class="btn btn-success">Edit</a> 
+                            @*@Html.ActionLink("Delete", "DeleteCountryFromList", new {countryId = item.Id}) 
+                             | @Html.ActionLink("Edit", "EditCountry", new { countryId = item.Id})*@ 
+                             <a asp-action="DeleteCountryFromList" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
                         <td>
                         </td>
                     </tr>
