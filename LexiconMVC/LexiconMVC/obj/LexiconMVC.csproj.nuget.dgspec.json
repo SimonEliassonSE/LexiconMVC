@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elias\\Desktop\\Lexicon studier\\LexiconExcercices\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj": {}
+    "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elias\\Desktop\\Lexicon studier\\LexiconExcercices\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj": {
+    "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elias\\Desktop\\Lexicon studier\\LexiconExcercices\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj",
+        "projectUniqueName": "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj",
         "projectName": "LexiconMVC",
-        "projectPath": "C:\\Users\\elias\\Desktop\\Lexicon studier\\LexiconExcercices\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj",
+        "projectPath": "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC.csproj",
         "packagesPath": "C:\\Users\\elias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elias\\Desktop\\Lexicon studier\\LexiconExcercices\\LexiconMVC\\LexiconMVC\\LexiconMVC\\obj\\",
+        "outputPath": "L:\\C# Projects\\LexiconMVC\\LexiconMVC\\LexiconMVC\\LexiconMVC\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
           "C:\\Users\\elias\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -69,6 +65,18 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

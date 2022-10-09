@@ -33,9 +33,14 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddRazorPages();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen(); //
 
 var app = builder.Build();
 
+
+app.UseSwaggerUI();
 app.UseSession(); 
 app.UseStaticFiles();
 app.UseRouting();
@@ -43,6 +48,8 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
+
+app.UseSwagger(x => x.SerializeAsV2 = true);
 
 app.MapControllerRoute(
     name:"default",
