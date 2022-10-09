@@ -8,293 +8,293 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LexiconMVC
 build_property.RootNamespace = LexiconMVC
-build_property.ProjectDir = C:\Users\elias\Desktop\Lexicon studier\LexiconExcercices\LexiconMVC\LexiconMVC\LexiconMVC\
+build_property.ProjectDir = L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\elias\Desktop\Lexicon studier\LexiconExcercices\LexiconMVC\LexiconMVC\LexiconMVC
+build_property.MSBuildProjectDirectory = L:\C# Projects\LexiconMVC\LexiconMVC\LexiconMVC\LexiconMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Lockout.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Login.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Logout.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Register.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Error.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/_ViewImports.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/_ViewStart.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/CityIndex.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/CityIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxDaXR5SW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/CreateNewCity.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/CreateNewCity.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxDcmVhdGVOZXdDaXR5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/EditCity.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/EditCity.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxFZGl0Q2l0eS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/UpdatePersonToCityRelation.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/City/UpdatePersonToCityRelation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0eVxVcGRhdGVQZXJzb25Ub0NpdHlSZWxhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/CountryIndex.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/CountryIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxDb3VudHJ5SW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/CreateNewCountry.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/CreateNewCountry.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxDcmVhdGVOZXdDb3VudHJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/EditCountry.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/EditCountry.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxFZGl0Q291bnRyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/UpdateCityToCountryRelation.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Country/UpdateCityToCountryRelation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291bnRyeVxVcGRhdGVDaXR5VG9Db3VudHJ5UmVsYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Doctor/feverCheck.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Doctor/feverCheck.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXGZldmVyQ2hlY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/GuessingGame/Guessing.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/GuessingGame/Guessing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3Vlc3NpbmdHYW1lXEd1ZXNzaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Home/index.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Home/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/AddLanguageToPerson.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/AddLanguageToPerson.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcQWRkTGFuZ3VhZ2VUb1BlcnNvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/CreateNewLanguage.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/CreateNewLanguage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcQ3JlYXRlTmV3TGFuZ3VhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/EditLanguage.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/EditLanguage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcRWRpdExhbmd1YWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/LanguageIndex.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Language/LanguageIndex.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFuZ3VhZ2VcTGFuZ3VhZ2VJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/People/EditPerson.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/People/EditPerson.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVvcGxlXEVkaXRQZXJzb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/People/Index.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/People/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVvcGxlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/People/_people.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/People/_people.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVvcGxlXF9wZW9wbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/AddUserToRole.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/AddUserToRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxBZGRVc2VyVG9Sb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/Create.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/Index.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/ShowAllUsers.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/ShowAllUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93QWxsVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/ShowUserRoles.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Role/ShowUserRoles.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxTaG93VXNlclJvbGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Shared/_Layout.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/Shared/_LoginPartial.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/about.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/about.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld0NvbnRlbnRcYWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/contact.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld0NvbnRlbnRcY29udGFjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/Index.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld0NvbnRlbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/projects.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/ViewContent/projects.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlld0NvbnRlbnRccHJvamVjdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/_ViewImports.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/elias/Desktop/Lexicon studier/LexiconExcercices/LexiconMVC/LexiconMVC/LexiconMVC/Views/_ViewStart.cshtml]
+[L:/C\# Projects/LexiconMVC/LexiconMVC/LexiconMVC/LexiconMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
