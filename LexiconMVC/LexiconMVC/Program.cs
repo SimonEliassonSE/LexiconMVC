@@ -1,11 +1,26 @@
 using LexiconMVC.Data;
 using LexiconMVC.Models;
 using Microsoft.AspNetCore.Identity;
+//using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+//[assembly: ApiController]
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000",
+                                              "http://localhost:3001");
+                      });
+});
+
 builder.Services.AddMvc();
+builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -35,21 +50,24 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-//builder.Services.AddSwaggerGen(); //
+
 
 var app = builder.Build();
-
-
+app.UseCors(MyAllowSpecificOrigins);
+app.UseHttpsRedirection();
 app.UseSwaggerUI();
 app.UseSession(); 
 app.UseStaticFiles();
 app.UseRouting();
+app.MapControllers();
 
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
 
 app.UseSwagger(x => x.SerializeAsV2 = true);
+
+
 
 app.MapControllerRoute(
     name:"default",

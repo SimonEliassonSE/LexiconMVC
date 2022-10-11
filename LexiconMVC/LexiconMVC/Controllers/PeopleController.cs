@@ -45,20 +45,14 @@ namespace LexiconMVC.Controllers
                 m.PeopleList = filteredPeople;
 
                 return View("Index", m);
-
             }
 
             else
             {
                 return RedirectToAction("Index");
 
-            }
-
-            
-
+            }      
         }
-
-
 
 
         public ActionResult DeleteFromList(int id)
