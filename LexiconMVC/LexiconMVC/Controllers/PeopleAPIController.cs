@@ -48,11 +48,68 @@ namespace LexiconMVC.Controllers
 
         // POST api/<PeopleAPIController>
         [HttpPost]
-        public void Post([FromBody] string value)
+
+        //public Person Create(FetchPostDataViewModel fpdVM)
+        public Person Create(FetchPostDataViewModel fpdVM)
         {
-            
-            //List<string> values = new List<string>();
-            //values.Add(value);
+            Person p = new Person();            
+            p.Name = fpdVM.name;
+            int newPhonenumber;
+            int.TryParse(fpdVM.phonenumber, out newPhonenumber);
+            p.Phonenumber = newPhonenumber;
+            int newCityId;
+            if (!int.TryParse(fpdVM.cityId, out newCityId)) ;
+            p.CityId = newCityId;
+            if(p == null)
+            {
+                Response.StatusCode = 400;
+            }
+            else
+            {
+                Response.StatusCode = 201;                
+                _context.People.Add(p);
+                _context.SaveChanges();
+
+            }
+
+            return p;
+
+            //var isIdtaken = _context.People.FirstOrDefault(x => x.Id == id);
+            //Console.WriteLine(countryId);
+
+            //if(isIdtaken.Id == id)
+            //{
+            //    Console.WriteLine("User already exist");
+            //}
+
+            //else
+            //{
+
+            //int newPhonenumber;
+            //if (!int.TryParse(fpdVM.phonenumber, out newPhonenumber)) ;
+            //int newCityId;
+            //if (!int.TryParse(fpdVM.cityId, out newCityId)) ;
+            //int iD;
+            //if (!int.TryParse(fpdVM.id, out iD)) ;
+
+            //var checkId = _context.People.FirstOrDefault(x => x.Id==iD);
+
+            //Person p = new Person();
+            //if (checkId != null)
+            //{
+            //    Response.StatusCode = 450;
+
+            //}
+            //else
+            //{
+            //    p.Name = fpdVM.name;
+            //    p.Phonenumber = newPhonenumber;
+            //    p.CityId = newCityId;
+            //    _context.People.Add(p);
+            //    _context.SaveChanges();
+            //}
+
+            //return p;
 
         }
 
@@ -66,6 +123,12 @@ namespace LexiconMVC.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var person = _context.People.FirstOrDefault(x => x.Id == id);
+
+            _context.People.Remove(person);
+            _context.SaveChanges();
+
+
         }
     }
 }

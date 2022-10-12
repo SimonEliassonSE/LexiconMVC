@@ -12,11 +12,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://localhost:3000",
-                                              "http://localhost:3001");
-                      });
+
+                        builder =>
+                        {
+                            builder.WithOrigins("*")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                        });
+                      //policy =>
+                      //{
+                      //    policy.WithOrigins("http://localhost:3000",
+                      //                        "http://localhost:3001")
+                      //    .WithMethods("POST", "DELETE", "GET");
+
+                      //});
 });
 
 builder.Services.AddMvc();
