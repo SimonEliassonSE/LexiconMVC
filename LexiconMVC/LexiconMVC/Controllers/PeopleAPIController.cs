@@ -48,70 +48,98 @@ namespace LexiconMVC.Controllers
 
         // POST api/<PeopleAPIController>
         [HttpPost]
-
-        //public Person Create(FetchPostDataViewModel fpdVM)
-        public Person Create(FetchPostDataViewModel fpdVM)
+        public Person Create([FromBody] FetchPostDataViewModel fpd)
         {
-            Person p = new Person();            
-            p.Name = fpdVM.name;
-            int newPhonenumber;
-            int.TryParse(fpdVM.phonenumber, out newPhonenumber);
-            p.Phonenumber = newPhonenumber;
-            int newCityId;
-            if (!int.TryParse(fpdVM.cityId, out newCityId)) ;
-            p.CityId = newCityId;
-            if(p == null)
+            Person p = new Person() { Name = fpd.Name, Phonenumber = fpd.Phonenumber, CityId = fpd.CityId};
+            //p.Name = fpd.Name;
+            //int newPhonenumber;
+            //int.TryParse(fpd.Phonenumber, out newPhonenumber);
+            //p.Phonenumber = newPhonenumber;
+            //int newCityId;
+            //if (!int.TryParse(fpd.CityId, out newCityId)) ;
+            //p.CityId = newCityId;
+            if (p == null)
             {
                 Response.StatusCode = 400;
             }
             else
             {
-                Response.StatusCode = 201;                
+                Response.StatusCode = 201;
                 _context.People.Add(p);
                 _context.SaveChanges();
 
             }
 
             return p;
-
-            //var isIdtaken = _context.People.FirstOrDefault(x => x.Id == id);
-            //Console.WriteLine(countryId);
-
-            //if(isIdtaken.Id == id)
-            //{
-            //    Console.WriteLine("User already exist");
-            //}
-
-            //else
-            //{
-
-            //int newPhonenumber;
-            //if (!int.TryParse(fpdVM.phonenumber, out newPhonenumber)) ;
-            //int newCityId;
-            //if (!int.TryParse(fpdVM.cityId, out newCityId)) ;
-            //int iD;
-            //if (!int.TryParse(fpdVM.id, out iD)) ;
-
-            //var checkId = _context.People.FirstOrDefault(x => x.Id==iD);
-
-            //Person p = new Person();
-            //if (checkId != null)
-            //{
-            //    Response.StatusCode = 450;
-
-            //}
-            //else
-            //{
-            //    p.Name = fpdVM.name;
-            //    p.Phonenumber = newPhonenumber;
-            //    p.CityId = newCityId;
-            //    _context.People.Add(p);
-            //    _context.SaveChanges();
-            //}
-
-            //return p;
-
         }
+        //public string Post([FromBody] string value)
+        //{
+        //    return value;
+        //}
+        //public Person Create(FetchPostDataViewModel fpdVM)
+        //public List<string> Post(List<string> values)
+        //{
+        //    return values;
+        //    //Person p = new Person();            
+        //    //p.Name = fpdVM.name;
+        //    //int newPhonenumber;
+        //    //int.TryParse(fpdVM.phonenumber, out newPhonenumber);
+        //    //p.Phonenumber = newPhonenumber;
+        //    //int newCityId;
+        //    //if (!int.TryParse(fpdVM.cityId, out newCityId)) ;
+        //    //p.CityId = newCityId;
+        //    //if(p == null)
+        //    //{
+        //    //    Response.StatusCode = 400;
+        //    //}
+        //    //else
+        //    //{
+        //    //    Response.StatusCode = 201;                
+        //    //    _context.People.Add(p);
+        //    //    _context.SaveChanges();
+
+        //    //}
+
+        //    //return p;
+
+        //    //var isIdtaken = _context.People.FirstOrDefault(x => x.Id == id);
+        //    //Console.WriteLine(countryId);
+
+        //    //if(isIdtaken.Id == id)
+        //    //{
+        //    //    Console.WriteLine("User already exist");
+        //    //}
+
+        //    //else
+        //    //{
+
+        //    //int newPhonenumber;
+        //    //if (!int.TryParse(fpdVM.phonenumber, out newPhonenumber)) ;
+        //    //int newCityId;
+        //    //if (!int.TryParse(fpdVM.cityId, out newCityId)) ;
+        //    //int iD;
+        //    //if (!int.TryParse(fpdVM.id, out iD)) ;
+
+        //    //var checkId = _context.People.FirstOrDefault(x => x.Id==iD);
+
+        //    //Person p = new Person();
+        //    //if (checkId != null)
+        //    //{
+        //    //    Response.StatusCode = 450;
+
+        //    //}
+        //    //else
+        //    //{
+        //    //    p.Name = fpdVM.name;
+        //    //    p.Phonenumber = newPhonenumber;
+        //    //    p.CityId = newCityId;
+        //    //    _context.People.Add(p);
+        //    //    _context.SaveChanges();
+        //    //}
+
+        //    //return p;
+
+        //}
 
         // PUT api/<PeopleAPIController>/5
         [HttpPut("{id}")]
